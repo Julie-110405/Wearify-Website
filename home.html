@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://db.onlinewebfonts.com/c/274507bb1293902e80e0d824d978be9e?family=Canva+Sans" rel="stylesheet">
+  <title>Wearify HomePage</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div id="square1"></div>
+    <div id="square2"></div>
+    <div id="square3"></div>
+    <div class="home-text">Home</div>
+    <div class="edit-text">Edit</div>
+    <div class="name-text">Mia's Closet</div>
+    <img src="default_profile.png" alt="Profile" class="default_profile">
+    <img src="logo.png" alt="Profile" class="logo">
+    <div class="line"></div>
+    <div id="scrollContainer">
+        <div id="square4"></div>
+        <div class="rounded-upper" onclick="toggleColor(this)">Upper</div>
+        <div class="rounded-lower" onclick="toggleColor(this)">Lower</div>
+        <div class="rounded-shoes" onclick="toggleColor(this)">Shoes</div>
+        <div class="rounded-eyewear" onclick="toggleColor(this)">Eyewear</div>
+        <div class="rounded-bag" onclick="toggleColor(this)">Bag</div>
+        <div class="rounded-headwear" onclick="toggleColor(this)">Headwear</div>
+        <div class="rounded-accessory" onclick="toggleColor(this)">Accessory</div>
+        <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
+    </div>
+
+    <script>
+        function toggleColor(element) {
+            element.classList.toggle("active"); // Toggle the active class on click
+        }
+    </script>
+</body>
+</html>
