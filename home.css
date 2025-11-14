@@ -63,19 +63,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px; 
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer;
+    transition: background-color 0.3s; 
 }
 
 .rounded-upper.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c;
 }
 
 .rounded-lower {
@@ -87,19 +87,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px;
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .rounded-lower.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c;
 }
 
 .rounded-shoes {
@@ -111,19 +111,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px;
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer; 
+    transition: background-color 0.3s; 
 }
 
 .rounded-shoes.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c;
 }
 
 .rounded-eyewear {
@@ -135,19 +135,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px;
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer;
+    transition: background-color 0.3s; 
 }
 
 .rounded-eyewear.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c; 
 }
 
 .rounded-bag {
@@ -159,19 +159,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px; 
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer; 
+    transition: background-color 0.3s;
 }
 
 .rounded-bag.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c; 
 }
 
 .rounded-headwear {
@@ -183,19 +183,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px; 
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer; 
+    transition: background-color 0.3s; 
 }
 
 .rounded-headwear.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c; 
 }
 
 .rounded-accessory {
@@ -207,19 +207,19 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px; 
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer; 
+    transition: background-color 0.3s; 
 }
 
 .rounded-accessory.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c; 
 }
 
 .rounded-socks {
@@ -231,76 +231,76 @@ body {
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; /* Adjusted for smaller size */
+    padding: 5px; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; /* New font size */
+    font-size: 16px; 
     text-align: center; 
-    font-family: 'Montserrat', sans-serif; /* Montserrat font */
+    font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
-    cursor: pointer; /* Change cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer; 
+    transition: background-color 0.3s; 
 }
 
 .rounded-socks.active {
-    background-color: #a1876c; /* Color when clicked */
+    background-color: #a1876c; 
 }
 
  .home-text {
-    position: absolute; /* Allows free positioning */
-    left: 400px; /* Initial horizontal position, editable */
-    top: 85px; /* Initial vertical position, editable */
-    font-family: 'Canva Sans', sans-serif; /* Use Canva Sans if available */
-    font-size: 24px; /* Editable font size */
-    font-weight: bold; /* Bold text */
-    cursor: move; /* Change cursor to move icon */
+    position: absolute; 
+    left: 400px; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
 }
 
  .edit-text {
-    position: absolute; /* Allows free positioning */
-    left: 800px; /* Initial horizontal position, editable */
-    top: 85px; /* Initial vertical position, editable */
-    font-family: 'Canva Sans', sans-serif; /* Use Canva Sans if available */
-    font-size: 24px; /* Editable font size */
-    font-weight: bold; /* Bold text */
-    cursor: move; /* Change cursor to move icon */
+    position: absolute; 
+    left: 800px; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
 }
 
  .name-text {
-    position: absolute; /* Allows free positioning */
-    left: 110px; /* Initial horizontal position, editable */
-    top: 19px; /* Initial vertical position, editable */
-    font-family: 'Montserrat', sans-serif; /* Use Canva Sans if available */
-    font-size: 22px; /* Editable font size */
-    font-weight: 400; /* Bold text */
-    cursor: move; /* Change cursor to move icon */
+    position: absolute; 
+    left: 110px; 
+    top: 19px; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 22px; 
+    font-weight: 400;
+    cursor: move; 
 }
 
 .default_profile {
-    position: absolute; /* Allows free positioning */
-    left: 30px; /* Initial horizontal position */
-    top: 8px; /* Initial vertical position */
-    width: 60px; /* Editable width */
-    height: auto; /* Maintain aspect ratio */
-    cursor: move; /* Change cursor to move icon */
+    position: absolute;
+    left: 30px; 
+    top: 8px;
+    width: 60px;
+    height: auto;
+    cursor: move;
 }
 
 .logo {
-    position: absolute; /* Allows free positioning */
-    left: 1050px; /* Initial horizontal position */
-    top: 8px; /* Initial vertical position */
-    width: 150px; /* Editable width */
-    height: auto; /* Maintain aspect ratio */
-    cursor: move; /* Change cursor to move icon */
+    position: absolute;
+    left: 1050px;
+    top: 8px;
+    width: 150px;
+    height: auto;
+    cursor: move; 
 }
 
 .line {
-    position: absolute; /* Allows positioning */
-    left: 395px; /* Initial horizontal position */
-    top: 115px; /* Initial vertical position */
-    height: 3px; /* Thickness of the line */
-    width: 80px; /* Adjustable length */
-    background-color: #000; /* Color of the line */
-    transform: rotate(0deg); /* Adjust rotation if needed */
-    cursor: ew-resize; /* Change cursor for resizing */
+    position: absolute;
+    left: 395px;
+    top: 115px;
+    height: 3px; 
+    width: 80px;
+    background-color: #000; 
+    transform: rotate(0deg); 
+    cursor: ew-resize; 
 }
