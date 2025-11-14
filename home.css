@@ -55,9 +55,9 @@ body {
 }
 
 .rounded-upper {
-    position: absolute;
-    left: 20px; 
-    top: 30px; 
+    position: fixed;
+    left: 560px; 
+    top: 150px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -79,9 +79,9 @@ body {
 }
 
 .rounded-lower {
-    position: absolute;
-    left: 150px; 
-    top: 30px; 
+    position: fixed;
+    left: 690px; 
+    top: 150px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -103,9 +103,9 @@ body {
 }
 
 .rounded-shoes {
-    position: absolute;
-    left: 280px; 
-    top: 30px; 
+    position: fixed;
+    left: 820px; 
+    top: 150px; 
     width: 110px; 
     height: 20px;   
     display: flex; 
@@ -127,9 +127,9 @@ body {
 }
 
 .rounded-eyewear {
-    position: absolute;
-    left: 410px; 
-    top: 30px; 
+    position: fixed;
+    left: 950px; 
+    top: 150px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -151,9 +151,9 @@ body {
 }
 
 .rounded-bag {
-    position: absolute;
-    left: 540px; 
-    top: 30px; 
+    position: fixed;
+    left: 1080px; 
+    top: 150px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -175,9 +175,9 @@ body {
 }
 
 .rounded-headwear {
-    position: absolute;
-    left: 20px; 
-    top: 80px; 
+    position: fixed;
+    left: 560px; 
+    top: 195px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -199,9 +199,9 @@ body {
 }
 
 .rounded-accessory {
-    position: absolute;
-    left: 150px; 
-    top: 80px; 
+    position:fixed;
+    left: 690px; 
+    top: 190px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -223,9 +223,9 @@ body {
 }
 
 .rounded-socks {
-    position: absolute;
-    left: 280px; 
-    top: 80px; 
+    position: fixed;
+    left: 820px; 
+    top: 190px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
