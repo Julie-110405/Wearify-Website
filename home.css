@@ -42,7 +42,7 @@ body {
     top: 130px; 
     left: 550px; 
     width: 680px;
-    height: 440px;
+    height: 800px;
     overflow-y: auto;
     background-color: #eae0d6; 
     
@@ -71,6 +71,7 @@ body {
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
     cursor: pointer;
+    z-index: 2;
     transition: background-color 0.3s; 
 }
 
@@ -95,6 +96,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
     cursor: pointer;
+    z-index: 2;
     transition: background-color 0.3s;
 }
 
@@ -119,6 +121,7 @@ body {
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
     cursor: pointer; 
+    z-index: 2;
     transition: background-color 0.3s; 
 }
 
@@ -143,6 +146,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
     cursor: pointer;
+    z-index: 2;
     transition: background-color 0.3s; 
 }
 
@@ -167,6 +171,7 @@ body {
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
     cursor: pointer; 
+    z-index: 2;
     transition: background-color 0.3s;
 }
 
@@ -191,6 +196,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
     cursor: pointer; 
+    z-index: 2;
     transition: background-color 0.3s; 
 }
 
@@ -215,6 +221,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
     cursor: pointer; 
+    z-index: 2;
     transition: background-color 0.3s; 
 }
 
@@ -239,6 +246,7 @@ body {
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
     cursor: pointer; 
+    z-index: 2;
     transition: background-color 0.3s; 
 }
 
@@ -303,4 +311,24 @@ body {
     background-color: #000; 
     transform: rotate(0deg); 
     cursor: ew-resize; 
+}
+
+#clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #e4e4e4;
+}
+
+.add_icon {
+    position: relative;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
 }
