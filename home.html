@@ -31,18 +31,17 @@
     </div>
     <script src="home.js"></script>
     <script>
-        // Store the currently active element
         let activeElement = null;
 
         function toggleColor(element) {
             if (activeElement) {
-                activeElement.classList.remove("active"); // Remove "active" from previously clicked element
+                activeElement.classList.remove("active");
             }
             if (activeElement !== element) {
-                element.classList.add("active"); // Add "active" to the newly clicked element
-                activeElement = element; // Update the active element to the currently clicked one
+                element.classList.add("active");
+                activeElement = element; 
             } else {
-                activeElement = null; // Clear if the same element is clicked again
+                activeElement = null; 
             }
         }
     </script>
