@@ -44,14 +44,14 @@ body {
     width: 680px;
     height: 800px;
     overflow-y: auto;
-    background-color: #eae0d6; 
+    background-color: #ffffff; 
     
 }
 
 #square4 {
     width: 100%;
     height: 200vh; 
-    background-color: #f0f0f0; 
+    background-color: #ffffff; 
 }
 
 .rounded-upper {
@@ -320,7 +320,7 @@ body {
   width: 180px;
   height: 260px;
   z-index: 1;
-  background-color: #e4e4e4;
+  background-color: #eeeeee;
 }
 
 .add_icon {
@@ -331,4 +331,16 @@ body {
     height: auto;
     cursor: pointer; 
     z-index: 1;
+}
+
+#recwhite {
+    position: fixed; 
+    left: 550px; 
+    top: 130px;   
+    width: 660px;   
+    height: 110px;   
+    cursor: pointer;   
+    opacity: 0.95;  
+    background-color: #ffffff; 
+    z-index: 1;     
 }
