@@ -23,33 +23,132 @@
     
     <div id="square3"></div> 
     
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
     <div id="scrollContainer">
         <div id="square4"></div>
         
         <div class="category-buttons">
-            <div class="rounded-upper active" onclick="toggleColor(this)">Upper</div> 
-            <div class="rounded-lower" onclick="toggleColor(this)">Lower</div>
-            <div class="rounded-shoes" onclick="toggleColor(this)">Shoes</div>
-            <div class="rounded-eyewear" onclick="toggleColor(this)">Eyewear</div>
-            <div class="rounded-bag" onclick="toggleColor(this)">Bag</div>
-            <div class="rounded-headwear" onclick="toggleColor(this)">Headwear</div>
-            <div class="rounded-accessory" onclick="toggleColor(this)">Accessory</div>
-            <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
+            <div class="rounded-upper active" data-target="slide-upper" onclick="toggleColor(this)">Upper</div> 
+            <div class="rounded-lower" data-target="slide-lower" onclick="toggleColor(this)">Lower</div>
+            <div class="rounded-shoes" data-target="slide-shoes" onclick="toggleColor(this)">Shoes</div>
+            <div class="rounded-eyewear" data-target="slide-eyewear" onclick="toggleColor(this)">Eyewear</div>
+            <div class="rounded-bag" data-target="slide-bag" onclick="toggleColor(this)">Bag</div>
+            <div class="rounded-headwear" data-target="slide-headwear" onclick="toggleColor(this)">Headwear</div>
+            <div class="rounded-accessory" data-target="slide-accessory" onclick="toggleColor(this)">Accessory</div>
+            <div class="rounded-socks" data-target="slide-socks" onclick="toggleColor(this)">Socks</div>
         </div>
         
-        <div class="add-item-card" id="addItemCard">
-            <div class="add-item-icon">+</div>
-            <div class="add-item-text">
-                Add Item
-                <p class="small-note">image with no background is preferable</p>
+        <div class="slide active-slide" id="slide-upper">
+            <div class="add-item-card" id="addItemCard" data-category="upper">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
             </div>
-            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            <div class="clothes-container" id="clothes-upper"></div>
         </div>
 
-        <div id="clothes">
+        <div class="slide" id="slide-lower">
+            <div class="add-item-card" data-category="lower">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
             </div>
+            <div class="clothes-container" id="clothes-lower">
+                <h2>No items yet. Please add some items!</h2>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-shoes">
+            <div class="add-item-card" data-category="shoes">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
+            </div>
+            <div class="clothes-container" id="clothes-shoes"></div>
+        </div>
+
+        <div class="slide" id="slide-eyewear">
+            <div class="add-item-card" data-category="eyewear">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
+            </div>
+            <div class="clothes-container" id="clothes-eyewear">
+                 <h2>No items yet. Please add some items!</h2>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-bag">
+            <div class="add-item-card" data-category="bag">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
+            </div>
+            <div class="clothes-container" id="clothes-bag"></div>
+        </div>
+
+        <div class="slide" id="slide-headwear">
+            <div class="add-item-card" data-category="headwear">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
+            </div>
+            <div class="clothes-container" id="clothes-headwear">
+                 <h2>No items yet. Please add some items!</h2>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-accessory">
+            <div class="add-item-card" data-category="accessory">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
+            </div>
+            <div class="clothes-container" id="clothes-accessory"></div>
+        </div>
+
+        <div class="slide" id="slide-socks">
+            <div class="add-item-card" data-category="socks">
+                <div class="add-item-icon">+</div>
+                <div class="add-item-text">
+                    Add Item
+                    <p class="small-note">image with no background is preferable</p>
+                </div>
+            </div>
+            <div class="clothes-container" id="clothes-socks">
+                 <h2>No items yet. Please add some items!</h2>
+            </div>
+        </div>
         
     </div>
+    <!-- DELETE CONFIRMATION MODAL -->
+<div id="deleteModal" class="modal-overlay">
+    <div class="modal-box">
+        <h3>Delete Item?</h3>
+        <p>This action cannot be undone.</p>
+
+        <div class="modal-buttons">
+            <button id="cancelDelete" class="modal-btn cancel">Cancel</button>
+            <button id="confirmDelete" class="modal-btn confirm">Delete</button>
+        </div>
+    </div>
+</div>
+
     
     <script src="edit.js"></script>
     
