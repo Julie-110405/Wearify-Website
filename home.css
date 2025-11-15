@@ -690,3 +690,124 @@ body {
     cursor: pointer; 
     z-index: 999999;
 }
+
+.slide {
+    width: 100%;
+    height: auto;
+    min-height: 700px; 
+    display: none;
+    background: white;
+    padding-top: 20px;
+}
+
+.slide.active-slide {
+    display: block;
+}
+
+
+
+
+#slide-lower h2 {
+    position: relative;   
+    top: -920px;          
+    left: 150px;;              
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#slide-eyewear h2 {
+    position: relative;   
+    top: -920px;        
+    left: 150px;;        
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#slide-shoes clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
+}
+
+#slide-shoes add_icon {
+    position: relative;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
+}
+
+
+#slide-bag clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
+}
+
+#slide-headwear h2 {
+    position: relative;   
+    top: -920px;        
+    left: 150px;;        
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#slide-bag add_icon {
+    position: relative;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
+}
+
+#slide-accessory clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
+}
+
+#slide-accessory add_icon {
+    position: relative;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
+}
+
+#slide-socks h2 {
+    position: relative;   
+    top: -920px;        
+    left: 150px;;        
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
