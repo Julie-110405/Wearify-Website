@@ -11,65 +11,47 @@
 <body>
     
     <div id="square1"></div>
+    <div id="square2"></div> 
+    
     <div class="name-text">Mia's Closet</div>
     <img src="default_profile.png" alt="Profile" class="default_profile">
     <img src="logo.png" alt="Wearify" class="logo">
     
-    <div id="square2"></div>
-    <div id="square3"></div> 
     <div class="home-text">Home</div>
     <div class="edit-text active-link">Edit</div> 
     <div class="line"></div> 
-
+    
+    <div id="square3"></div> 
+    
     <div id="scrollContainer">
         <div id="square4"></div>
         
         <div class="category-buttons">
-                    <div class="rounded-upper active" onclick="toggleColor(this)">Upper</div> 
-            <div class="rounded-lower" onclick="toggleColor(this)">Lower</div>
-            <div class="rounded-shoes" onclick="toggleColor(this)">Shoes</div>
-            <div class="rounded-eyewear" onclick="toggleColor(this)">Eyewear</div>
-            <div class="rounded-bag" onclick="toggleColor(this)">Bag</div>
-            <div class="rounded-headwear" onclick="toggleColor(this)">Headwear</div>
-            <div class="rounded-accessory" onclick="toggleColor(this)">Accessory</div>
-            <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
+            <div class="rounded-upper active" onclick="toggleColor(this)">Upper</div> 
+            <div class="rounded-lower" onclick="toggleColor(this)">Lower</div>
+            <div class="rounded-shoes" onclick="toggleColor(this)">Shoes</div>
+            <div class="rounded-eyewear" onclick="toggleColor(this)">Eyewear</div>
+            <div class="rounded-bag" onclick="toggleColor(this)">Bag</div>
+            <div class="rounded-headwear" onclick="toggleColor(this)">Headwear</div>
+            <div class="rounded-accessory" onclick="toggleColor(this)">Accessory</div>
+            <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
         </div>
         
-        <div class="add-item-card">
+        <div class="add-item-card" id="addItemCard">
             <div class="add-item-icon">+</div>
             <div class="add-item-text">
                 Add Item
                 <p class="small-note">image with no background is preferable</p>
             </div>
+            <input type="file" id="fileInput" accept="image/*" style="display: none;">
         </div>
 
-        <div class="item-grid">
-            <div class="item-card"><span class="delete-icon">🗑️</span></div>
-            <div class="item-card"><span class="delete-icon">🗑️</span></div>
-            <div class="item-card"><span class="delete-icon">🗑️</span></div>
-            <div class="item-card"><span class="delete-icon">🗑️</span></div>
-            <div class="item-card"><span class="delete-icon">🗑️</span></div>
-            <div class="item-card"><span class="delete-icon">🗑️</span></div>
-        </div>
-
-        <div id="clothes"></div>
-    </div>
+        <div id="clothes">
+            </div>
+        
+    </div>
     
-        <script src="home.js"></script>
-    <script>
-        let activeElement = null;
-
-        function toggleColor(element) {
-            if (activeElement) {
-                activeElement.classList.remove("active");
-            }
-            if (activeElement !== element) {
-                element.classList.add("active");
-                activeElement = element; 
-            } else {
-                activeElement = null; 
-            }
-        }
-    </script>
+    <script src="edit.js"></script>
+    
 </body>
 </html>
