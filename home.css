@@ -206,7 +206,7 @@ body {
 .rounded-accessory {
     position:fixed;
     left: 660px; 
-    top: 190px; 
+    top: 195px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -231,7 +231,7 @@ body {
 .rounded-socks {
     position: fixed;
     left: 790px; 
-    top: 190px; 
+    top: 195px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
