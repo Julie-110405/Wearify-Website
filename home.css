@@ -345,6 +345,71 @@ body {
 }
 
 
+.tooltip-trigger {
+  position: fixed;       
+  display: block;
+  cursor: pointer;
+  z-index: 3000;
+}
+
+.tooltip-trigger .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  z-index: 5;
+}
+
+.tooltip-trigger img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;    
+  height: 100%;  
+  object-fit: contain; 
+  z-index: 5;
+  pointer-events: none;
+}
+
+
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: 220px;
+  background-color: #a1876c;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  position: absolute;
+  bottom: calc(100% + 8px); 
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.18s ease, visibility 0.18s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #a1876c transparent transparent transparent;
+}
+
+.tooltip-trigger:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 #bg-upper {
     position: fixed; 
     left: 182px; 
@@ -356,8 +421,9 @@ body {
     z-index: 1;     
 }
 
+
 .upper {
-    position: absolute;
+    position: fixed;
     left: 182px;
     top: 130px;
     width: 130px;
@@ -365,6 +431,7 @@ body {
     cursor: pointer; 
     z-index: 2; 
 }
+
 
 #bg-lower {
     position: fixed; 
@@ -378,7 +445,7 @@ body {
 }
 
 .lower {
-    position: absolute;
+    position: fixed;
     left: 182px;
     top: 280px;
     width: 130px;
@@ -386,7 +453,6 @@ body {
     cursor: pointer; 
     z-index: 2; 
 }
-
 
 #bg-shoes {
     position: fixed; 
@@ -469,7 +535,7 @@ body {
     width: 100px;
     height: auto;
     cursor: pointer; 
-    z-index: 2; 
+    z-index: 1; 
 }
 
 #bg-accessory1 {
@@ -533,4 +599,94 @@ body {
     height: auto;
     cursor: pointer; 
     z-index: 2; 
+}
+
+.remove_upper {
+    position: fixed;
+    left: 285px;
+    top: 128px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+.remove_lower {
+    position: fixed;
+    left: 285px;
+    top: 278px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+.remove_shoes {
+    position: fixed;
+    left: 285px;
+    top: 428px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+.remove_eyewear {
+    position: fixed;
+    left: 428px;
+    top: 158px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+.remove_bag {
+    position: fixed;
+    left: 132px;
+    top: 278px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 999999;
+}
+
+.remove_headwear {
+    position: fixed;
+    left: 132px;
+    top: 158px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+.remove_accessory1 {
+    position: fixed;
+    left: 428px;
+    top: 278px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 999999;
+}
+
+.remove_accessory2 {
+    position: fixed;
+    left: 428px;
+    top: 398px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+.remove_socks {
+    position: fixed;
+    left: 122px;
+    top: 398px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 999999;
 }
