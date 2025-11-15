@@ -1,0 +1,286 @@
+/* --- Variables & Global Resets --- */
+:root {
+    --color-nav-bg: #a1876c;      /* Navigation Bar (Brown) */
+    --color-subheader-bg: #eae0d6;  /* Sub-Header Bar (Light Beige) */
+    --color-content-bg: #ffffff;   /* Background color */
+    --color-accent-default: #eae0d6; /* Default Button/Menu Accent (Light Beige) */
+    --color-accent-hover: #a1876c;  /* Brown - Active Button Color */
+    --color-text: #000000;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Canva Sans', sans-serif; 
+    --header-height: 130px; 
+    --content-max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: var(--color-content-bg);
+    position: relative;
+    overflow-x: hidden;
+    font-family: var(--font-primary);
+    color: var(--color-text);
+}
+
+/* --- 1. Fixed Header Backgrounds --- */
+
+#square1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--color-nav-bg);
+    z-index: 100;
+}
+
+#square2 {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-subheader-bg); 
+    z-index: 99;
+}
+
+/* Redundant elements cleanup */
+#square3, #square4 {
+    display: none;
+}
+
+
+/* --- 2. Fixed Header Content (Text & Images) --- */
+
+.name-text {
+    position: fixed;
+    left: 110px; 
+    top: 19px; 
+    font-family: var(--font-primary); 
+    font-size: 22px; 
+    font-weight: 400;
+    /* --- FIX 2: Change Mia's Closet color to black --- */
+    color: var(--color-text); 
+    z-index: 101;
+}
+
+.default_profile {
+    position: fixed;
+    left: 30px; 
+    top: 8px;
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    z-index: 101;
+}
+
+.logo {
+    position: absolute;
+    left: 1050px;
+    right: 20px;
+    top: 8px;
+    width: 150px;
+    height: auto;
+    cursor: move; 
+    z-index: 101;
+}
+
+.home-text, .edit-text {
+    position: fixed; 
+    top: 85px; 
+    font-family: var(--font-secondary);
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.2s;
+}
+
+ .home-text {
+    position: absolute; 
+    left: 400px; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
+}
+
+ .edit-text {
+    position: absolute; 
+    left: 800px; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
+}
+
+.line {
+    /* Keep this fixed to stay in the header area */
+    position: fixed; 
+    height: 3px; 
+    /* Keep width consistent with the word 'EDIT' */
+    width: 50px; 
+    background-color: var(--color-text); 
+    z-index: 100;
+    top: 115px; 
+    
+    /* 1. Set the line's starting point to the text's starting point (800px) */
+    left: 800px; 
+    
+    /* 2. Center the line beneath the text width (50px) by shifting it half its width (25px) */
+    transform: translateX(calc(25px - 25px)); /* Center: 0 shift */
+    /* This calculation is equivalent to simply: */
+    /* transform: translateX(0); */
+}
+
+/* --- 3. Scrollable Main Content Area --- */
+
+#scrollContainer {
+    position: relative;
+    padding-top: var(--header-height);
+    padding-bottom: 50px;
+    margin: 0 auto;
+    max-width: var(--content-max-width); 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: visible;
+    height: auto; 
+    background-color: transparent;
+}
+
+
+/* --- 4. Category Buttons --- */
+
+.category-buttons {
+    width: 100%;
+    max-width: 700px; 
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Target all category buttons */
+.rounded-upper, .rounded-lower, .rounded-shoes, .rounded-eyewear, 
+.rounded-bag, .rounded-headwear, .rounded-accessory, .rounded-socks {
+    position: static; 
+    width: 110px; 
+    height: 35px;
+    padding: 5px 10px;
+    
+    background-color: var(--color-accent-default); /* Default light beige */
+    border-radius: 25px; 
+    font-size: 1rem; 
+    border: 1px solid #ccc; 
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    z-index: 2;
+}
+
+/* Active button style - Applies to ALL buttons with the 'active' class */
+.rounded-upper.active, 
+.rounded-lower.active, 
+.rounded-shoes.active, 
+.rounded-eyewear.active, 
+.rounded-bag.active, 
+.rounded-headwear.active, 
+.rounded-accessory.active, 
+.rounded-socks.active {
+    background-color: var(--color-accent-hover); /* Brown color when active */
+    color: white;
+    border-color: var(--color-accent-hover);
+}
+
+
+/* --- 5. Add Item Card --- */
+
+.add-item-card {
+    width: 450px;
+    height: 120px;
+    background-color: #f7f7f7; 
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.add-item-icon {
+    font-size: 2.5rem;
+    font-weight: 300;
+    border: 2px solid var(--color-text);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.add-item-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.small-note {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 2px;
+}
+
+
+/* --- 6. Item Grid --- */
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px;
+    width: 100%;
+    max-width: 10000px; 
+    margin-bottom: 40px;
+    padding: 0 15px;
+}
+
+.item-card {
+    width: 100%; 
+    height: 300px; 
+    background-color: #f7f7f7; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1); 
+}
+
+/* Final Cleanup - Disabling original unused elements */
+#clothes, .add_icon {
+    display: none; 
+}
