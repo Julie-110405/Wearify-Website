@@ -1,0 +1,199 @@
+/* Import the Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* --- Define Variables --- */
+:root {
+    --sidebar-width: 300px; 
+    --tan-color: #eae0d6; 
+    --text-color: #333;
+    --dark-tan-color: #d1c1b1; 
+    --light-gray: #ccc;
+}
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
+    padding-left: var(--sidebar-width); 
+}
+
+/* --- Utilities --- */
+.hidden {
+    display: none !important;
+}
+
+/* --- Left Sidebar Panel --- */
+.account-sidebar-panel {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width); 
+    height: 50vh; 
+    background-color: var(--tan-color); 
+    padding: 20px; 
+    z-index: 100;
+    box-sizing: border-box; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    flex-direction: column;
+    transition: height 0.3s ease-in-out; 
+}
+
+.account-sidebar-panel.expanded {
+    height: 65vh;
+}
+
+.page-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px; 
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: nowrap; 
+}
+
+.profile-photo-wrapper {
+    position: relative;
+    width: 80px; 
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid #fff; 
+    box-sizing: content-box; 
+    background-color: #fff; 
+    overflow: hidden; 
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
+    color: var(--text-color);
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    border: 1px solid var(--text-color); 
+    line-height: 1;
+}
+
+.profile-name-edit {
+    display: flex;
+    align-items: flex-end; 
+    flex-grow: 1;
+}
+
+.user-name-input {
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    background: transparent;
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--text-color);
+    padding: 0 0 2px 0; 
+    width: 100%; 
+}
+
+.edit-icon {
+    margin-left: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    color: var(--text-color);
+    padding-bottom: 2px;
+}
+
+/* --- Account Links Section --- */
+.account-links {
+    flex-grow: 1; 
+    padding-top: 10px; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------- */
+/* FIXED: Make entire link row clickable         */
+/* --------------------------------------------- */
+.account-link {
+    display: flex;             /* Full row clickable */
+    align-items: center;
+    gap: 5px;
+    padding: 10px 5px;         /* Bigger click area */
+    width: 100%;               /* Ensure full width clickable */
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dropdown-arrow {
+    font-size: 0.8em;
+    margin-left: 2px;
+}
+
+/* --- Control Buttons --- */
+.control-buttons {
+    display: flex;
+    justify-content: space-around; 
+    padding: 10px 0;
+    margin-top: auto; 
+    width: 100%; 
+}
+
+.back-button, .save-button, a.back-button {
+    padding: 8px 18px; 
+    border: none; 
+    border-radius: 20px; 
+    font-size: 0.9em; 
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+    transition: background-color 0.2s;
+    width: 100px; 
+    max-width: 120px; 
+    text-align: center;
+    color: var(--text-color); 
+    background-color: var(--dark-tan-color); 
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-button:hover, .save-button:hover, a.back-button:hover {
+    background-color: #c0b0a0; 
+}
+
+/* --- Styles Specific to Username/Password Edit Fields --- */
+.edit-username-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    padding: 10px 0;
+    margin-bottom: 5px; 
+}
+
+.rounded-input {
+    padding: 10px 15px;
+    border: none; 
+    border-radius: 20px; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: var(--text-color);
+    background-color: white; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+    transition: box-s
+}
