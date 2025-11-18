@@ -1,10 +1,9 @@
-/* --- Variables & Global Resets --- */
 :root {
-    --color-nav-bg: #a1876c;      /* Navigation Bar (Brown) */
-    --color-subheader-bg: #eae0d6;  /* Sub-Header Bar (Light Beige) */
-    --color-content-bg: #ffffff;   /* Background color */
-    --color-accent-default: #eae0d6; /* Default Button/Menu Accent (Light Beige) */
-    --color-accent-hover: #a1876c;  /* Brown - Active Button Color */
+    --color-nav-bg: #a1876c;
+    --color-subheader-bg: #eae0d6;
+    --color-content-bg: #ffffff;
+    --color-accent-default: #eae0d6;
+    --color-accent-hover: #a1876c;
     --color-text: #000000;
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Canva Sans', sans-serif; 
@@ -14,6 +13,11 @@
 
 * {
     box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; 
 }
 
 body {
@@ -27,8 +31,6 @@ body {
     font-family: var(--font-primary);
     color: var(--color-text);
 }
-
-/* --- 1. Fixed Header Backgrounds --- */
 
 #square1 {
     position: fixed;
@@ -50,13 +52,9 @@ body {
     z-index: 99;
 }
 
-/* Redundant elements cleanup */
 #square3, #square4 {
     display: none;
 }
-
-
-/* --- 2. Fixed Header Content (Text & Images) --- */
 
 .name-text {
     position: fixed;
@@ -65,7 +63,6 @@ body {
     font-family: var(--font-primary); 
     font-size: 22px; 
     font-weight: 400;
-    /* --- FIX 2: Change Mia's Closet color to black --- */
     color: var(--color-text); 
     z-index: 101;
 }
@@ -102,7 +99,7 @@ body {
     transition: color 0.2s;
 }
 
- .home-text {
+.home-text {
     position: absolute; 
     left: 400px; 
     top: 85px; 
@@ -112,7 +109,7 @@ body {
     cursor: move; 
 }
 
- .edit-text {
+.edit-text {
     position: absolute; 
     left: 800px; 
     top: 85px; 
@@ -123,29 +120,22 @@ body {
 }
 
 .line {
-    /* Keep this fixed to stay in the header area */
     position: fixed; 
     height: 3px; 
-    /* Keep width consistent with the word 'EDIT' */
     width: 50px; 
     background-color: var(--color-text); 
     z-index: 100;
     top: 115px; 
-    
-    /* 1. Set the line's starting point to the text's starting point (800px) */
     left: 800px; 
-    
-    /* 2. Center the line beneath the text width (50px) by shifting it half its width (25px) */
-    transform: translateX(calc(25px - 25px)); /* Center: 0 shift */
-    /* This calculation is equivalent to simply: */
-    /* transform: translateX(0); */
+    transform: translateX(calc(25px - 25px)); 
 }
-
-/* --- 3. Scrollable Main Content Area --- */
 
 #scrollContainer {
     position: relative;
-    padding-top: var(--header-height);
+    padding-top: var(--header-height); 
+    height: 100vh;
+    overflow-y: auto; 
+    
     padding-bottom: 50px;
     margin: 0 auto;
     max-width: var(--content-max-width); 
@@ -153,33 +143,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: visible;
-    height: auto; 
     background-color: transparent;
 }
 
-
-/* --- 4. Category Buttons --- */
-
+/* --- Category Buttons (Fixed Left Alignment) --- */
 .category-buttons {
     width: 100%;
     max-width: 700px; 
     margin: 40px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
+    padding-left: 20px; 
 }
 
-/* Target all category buttons */
 .rounded-upper, .rounded-lower, .rounded-shoes, .rounded-eyewear, 
 .rounded-bag, .rounded-headwear, .rounded-accessory, .rounded-socks {
     position: static; 
+    flex: 0 0 calc(25% - 15px);
     width: 110px; 
     height: 35px;
     padding: 5px 10px;
-    
-    background-color: var(--color-accent-default); /* Default light beige */
+    background-color: var(--color-accent-default);
     border-radius: 25px; 
     font-size: 1rem; 
     border: 1px solid #ccc; 
@@ -192,7 +178,6 @@ body {
     z-index: 2;
 }
 
-/* Active button style - Applies to ALL buttons with the 'active' class */
 .rounded-upper.active, 
 .rounded-lower.active, 
 .rounded-shoes.active, 
@@ -201,17 +186,36 @@ body {
 .rounded-headwear.active, 
 .rounded-accessory.active, 
 .rounded-socks.active {
-    background-color: var(--color-accent-hover); /* Brown color when active */
+    background-color: var(--color-accent-hover);
     color: white;
     border-color: var(--color-accent-hover);
 }
 
+/* --- Slide Container Styles --- */
+.slide {
+    width: 100%;
+    display: none; 
+    flex-direction: column; 
+    align-items: center;
+    
+    height: auto;
+    min-height: 700px; 
+    background: white;
+    padding-top: 20px;
+    position: relative;
+}
 
-/* --- 5. Add Item Card --- */
+.active-slide {
+    display: flex;
+}
 
+/* --- ADD ITEM CARD STYLES (Centered by .slide) --- */
 .add-item-card {
-    width: 450px;
-    height: 120px;
+  width: 100%;
+    max-width: 400px;  
+    min-height: 120px;  
+    max-height: 220px;
+    height: auto;  
     background-color: #f7f7f7; 
     border-radius: 8px;
     display: flex;
@@ -221,6 +225,9 @@ body {
     margin-bottom: 50px;
     cursor: pointer;
     border: 1px solid #ddd;
+    
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 .add-item-icon {
@@ -249,38 +256,154 @@ body {
     margin-top: 2px;
 }
 
-
-/* --- 6. Item Grid --- */
-
-.item-grid {
+/* --- Item Grid Styles (Left-Aligned Boxes) --- */
+.clothes-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 20px;
-    width: 100%;
-    max-width: 10000px; 
-    margin-bottom: 40px;
-    padding: 0 15px;
+    grid-template-columns: repeat(auto-fit, 200px); 
+    justify-content: flex-start;  
+    gap: 15px; 
+    width: 90%;
+    max-width: 900px; 
+    margin: 0 auto 50px; 
+    padding: 0 0 0 20px; 
+    text-align: center;
+}
+
+/* --- NO ITEMS TEXT: Using Fixed Positioning Reference --- */
+.clothes-container h2 {
+    position: static;
+    margin: 0;
+    width: auto;
+    text-align: left;
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.slide h2 {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: 250px; 
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    margin: 0;
+}
+
+
+#clothes {
+    display: none;
 }
 
 .item-card {
-    width: 100%; 
+    width: 200px; 
     height: 300px; 
     background-color: #f7f7f7; 
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 1px;
     position: relative;
+    overflow: hidden; 
+    
 }
 
+.item-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+}
+
+/* --- DELETE ICON STYLES for Image --- */
 .delete-icon {
     position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 1.1rem;
     cursor: pointer;
-    text-shadow: 0 1px 1px rgba(0,0,0,0.1); 
+    width: 25px; 
+    height: 25px;
+    z-index: 10;
+    
+    background: none; 
+    border-radius: 0;
+    padding: 0;
 }
 
-/* Final Cleanup - Disabling original unused elements */
-#clothes, .add_icon {
+.delete-icon:hover {
+    opacity: 0.8;
+}
+
+/* --- DELETE CONFIRMATION MODAL --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.modal-box {
+    width: 280px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-family: var(--font-primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #000;
+}
+
+.modal-box p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-btn {
+    width: 48%;
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-btn.cancel {
+    background: #e0e0e0;
+}
+
+.modal-btn.confirm {
+    background: #a1876c;
+    color: white;
+}
+
+
+.item-grid, .add_icon {
     display: none; 
 }
