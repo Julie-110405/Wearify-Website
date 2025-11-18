@@ -1,0 +1,35 @@
+/* --- Styles Specific to Username/Password Edit Fields --- */
+
+.edit-username-inputs {
+    /* Container to hold the two input fields */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between the inputs */
+    padding: 10px 0;
+    margin-bottom: 5px; 
+}
+
+.rounded-input {
+    /* Base styling for the rounded input fields */
+    padding: 10px 15px;
+    border: none; /* No default border */
+    border-radius: 20px; /* Highly rounded corners */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: var(--text-color);
+    background-color: white; /* Light background for the input */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft inner shadow for depth */
+    transition: box-shadow 0.2s, background-color 0.2s;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.rounded-input::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+.rounded-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--dark-tan-color); /* Subtle focus ring */
+}
