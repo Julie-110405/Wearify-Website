@@ -1,71 +1,96 @@
-
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
   background-color: #f0f0f0;
-  position: relative;
-  overflow: auto;
+  overflow: hidden; /* Prevent body from scrolling */
 }
 
+.container {
+    display: flex;
+    width: 100vw; 
+    height: 100vh;
+    box-shadow: none; 
+    border-radius: 0; 
+    overflow: hidden;
+}
 
 #square1 {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 1250px;
-  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300%; /* Allows for larger height */
   background-color: #a1876c;
 }
 
 #square2 {
-  position: fixed;
-  top: 70px;
-  left: 0px;
-  width: 1250px;
-  height: 60px;
+  position: absolute;
+  top: 10vh; /* Responsive position */
+  left: 0;
+  width: 100%;
+  height: 60vh;
   background-color: #eae0d6;
 }
 
 #square3 {
-  position: fixed;
-  top: 70px;
-  left: 0px;
-  width: 700px;
-  height: 493px;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 70%;
+  height: 90vh; /* Responsive height */
   background-color: #eae0d6;
 }
 
 #scrollContainer {
-    position: fixed; 
-    top: 130px; 
-    left: 500px; 
-    width: 750px;
-    height: 434px;
-    overflow-y: auto;
-    background-color: #ffffff; 
+  position: absolute; 
+  top: 20vh; /* Responsive position */
+  left: 40vw; /* Responsive position */
+  width: 60vw; /* Responsive width */
+  height: 80vh; /* Make height responsive to viewport */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: #ffffff;
 }
 
 #square4 {
-    width: 100%;
-    height: 200vh; 
-    background-color: #ffffff; 
+  width: 100%;
+  height: 200vh; /* Height to allow scrolling */
+  background-color: #ffffff;
 }
+
+.home-text {
+  position: absolute; 
+  left: 30vw; /* Responsive position */
+  top: 13vh; /* Responsive position */
+  font-family: 'Canva Sans', sans-serif; 
+  font-size: 2vw; /* Responsive font size */
+  font-weight: bold; 
+  cursor: move; 
+}
+
+.edit-text {
+  position: absolute; 
+  left: 60vw; /* Responsive position */
+  top: 13vh; /* Responsive position */
+  font-family: 'Canva Sans', sans-serif; 
+  font-size: 2vw; /* Responsive font size */
+  font-weight: bold; 
+  cursor: pointer; 
+}
+
 
 .rounded-upper {
     position: fixed;
-    left: 530px; 
-    top: 150px; 
-    width: 110px; 
-    height: 20px; 
+    left: 43%; 
+    top: 25%; 
+    width: 7.64vw; 
+    height: 3.22vh;
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; 
+    font-size: 1.2vw; 
     text-align: center; 
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
@@ -80,17 +105,17 @@ body {
 
 .rounded-lower {
     position: fixed;
-    left: 660px; 
-    top: 150px; 
-    width: 110px; 
-    height: 20px; 
+    left: 54%;
+    top: 25%; 
+    width: 7.64vw; 
+    height: 3.22vh;
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px;
+    font-size: 1.2vw;
     text-align: center; 
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
@@ -105,17 +130,17 @@ body {
 
 .rounded-shoes {
     position: fixed;
-    left: 790px; 
-    top: 150px; 
-    width: 110px; 
-    height: 20px;   
+    left: 65%; 
+    top: 25%; 
+    width: 7.64vw; 
+    height: 3.22vh; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px;
+    font-size:1.2vw;
     text-align: center; 
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
@@ -130,17 +155,17 @@ body {
 
 .rounded-eyewear {
     position: fixed;
-    left: 920px; 
-    top: 150px; 
-    width: 110px; 
-    height: 20px; 
+    left: 76%; 
+    top: 25%; 
+    width: 7.64vw; 
+    height: 3.22vh; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px;
+    font-size: 1.2vw;
     text-align: center; 
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
@@ -155,17 +180,17 @@ body {
 
 .rounded-bag {
     position: fixed;
-    left: 1050px; 
-    top: 150px; 
-    width: 110px; 
-    height: 20px; 
+    left: 87%; 
+    top: 25%; 
+    width: 7.64vw;
+    height: 3.22vh; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; 
+    font-size: 1.2vw; 
     text-align: center; 
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
@@ -180,17 +205,17 @@ body {
 
 .rounded-headwear {
     position: fixed;
-    left: 530px; 
-    top: 195px; 
-    width: 110px; 
-    height: 20px; 
+    left: 43%; 
+    top: 33%; 
+    width: 7.64vw;
+    height: 3.22vh; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; 
+    font-size: 1.2vw; 
     text-align: center; 
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
@@ -205,17 +230,17 @@ body {
 
 .rounded-accessory {
     position:fixed;
-    left: 660px; 
-    top: 195px; 
-    width: 110px; 
-    height: 20px; 
+    left: 54%; 
+    top: 33%; 
+    width: 7.64vw;
+    height: 3.22vh; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding:0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; 
+    font-size: 1.2vw; 
     text-align: center; 
     font-family: 'Montserrat', sans-serif;
     border: 1px solid #ccc; 
@@ -230,17 +255,17 @@ body {
 
 .rounded-socks {
     position: fixed;
-    left: 790px; 
-    top: 195px; 
-    width: 110px; 
-    height: 20px; 
+    left: 65%; 
+    top: 33%; 
+    width: 7.64vw;
+    height: 3.22vh;  
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    padding: 5px; 
+    padding: 0.5rem; 
     background-color: #eae0d6;
     border-radius: 25px; 
-    font-size: 16px; 
+    font-size: 1.2vw; 
     text-align: center; 
     font-family: 'Montserrat', sans-serif; 
     border: 1px solid #ccc; 
@@ -253,561 +278,54 @@ body {
     background-color: #a1876c; 
 }
 
- .home-text {
-    position: absolute; 
-    left: 400px; 
-    top: 85px; 
-    font-family: 'Canva Sans', sans-serif; 
-    font-size: 24px; 
-    font-weight: bold; 
-    cursor: move; 
-}
-
- .edit-text {
-    position: absolute; 
-    left: 800px; 
-    top: 85px; 
-    font-family: 'Canva Sans', sans-serif; 
-    font-size: 24px; 
-    font-weight: bold; 
-    cursor: pointer; 
-}
-
- .name-text {
-    position: absolute; 
-    left: 110px; 
-    top: 19px; 
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 22px; 
-    font-weight: 500;
-    cursor: pointer; 
-}
-
-.default_profile {
-    position: absolute;
-    left: 30px; 
-    top: 8px;
-    width: 60px;
-    height: auto;
-    cursor: pointer;
-}
-
-.logo {
-    position: absolute;
-    left: 1050px;
-    top: 8px;
-    width: 150px;
-    height: auto;
-    cursor: pointer; 
-}
 
 .line {
     position: absolute;
-    left: 395px;
-    top: 115px;
-    height: 3px; 
-    width: 80px;
+    left: 29.5vw;
+    top: 18vh;
+    height: 0.5vh; 
+    width: 7vw;
     background-color: #000; 
     transform: rotate(0deg); 
     cursor: pointer; 
 }
 
-#clothes {
-  position: relative;
-  top: -1000px;
-  left: 20px;
-  width: 180px;
-  height: 260px;
-  z-index: 1;
-  background-color: #eeeeee;
-}
-
-.add_icon {
-    position: relative;
-    left: 165px;
-    top: -1255px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 1;
-}
-
 #recwhite {
     position: fixed; 
-    left: 500px; 
-    top: 130px;   
-    width: 710px;   
-    height: 110px;   
+    left: 40vw; 
+    top: 20vh;   
+    width: 59vw;   
+    height: 20vh;   
     cursor: pointer;   
     opacity: 0.95;  
     background-color: #ffffff; 
     z-index: 1;     
 }
 
-
-.tooltip-trigger {
-  position: fixed;       
-  display: block;
-  cursor: pointer;
-  z-index: 3000;
+ .name-text {
+    position: absolute; 
+    left: 10%; 
+    top: 2%; 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 2vw; 
+    font-weight: 500;
+    cursor: pointer; 
 }
 
-.tooltip-trigger .bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #f2f2f2;
-  z-index: 5;
-}
-
-.tooltip-trigger img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;    
-  height: 100%;  
-  object-fit: contain; 
-  z-index: 5;
-  pointer-events: none;
-}
-
-
-.tooltip-text {
-  visibility: hidden;
-  opacity: 0;
-  width: max-content;
-  max-width: 220px;
-  background-color: #a1876c;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-size: 0.85rem;
-  position: absolute;
-  bottom: calc(100% + 8px); 
-  left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.18s ease, visibility 0.18s;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: #a1876c transparent transparent transparent;
-}
-
-.tooltip-trigger:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-#bg-upper {
-    position: fixed; 
-    left: 182px; 
-    top: 130px;   
-    width: 130px;   
-    height: 140px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-
-.upper {
+.default_profile {
     position: fixed;
-    left: 182px;
-    top: 130px;
-    width: 130px;
+    left: 5vw; 
+    top: 1vh;
+    width: 65px;
     height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-
-#bg-lower {
-    position: fixed; 
-    left: 182px; 
-    top: 280px;   
-    width: 130px;   
-    height: 140px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.lower {
-    position: fixed;
-    left: 182px;
-    top: 280px;
-    width: 130px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-shoes {
-    position: fixed; 
-    left: 182px; 
-    top: 430px;   
-    width: 130px;   
-    height: 100px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.shoes {
-    position: absolute;
-    left: 195px;
-    top: 430px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-eyewear {
-    position: fixed; 
-    left: 335px; 
-    top: 160px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.eyewear {
-    position: absolute;
-    left: 345px;
-    top: 155px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-bag {
-    position: fixed; 
-    left: 40px; 
-    top: 280px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.bag {
-    position: absolute;
-    left: 55px;
-    top: 280px;
-    width: 85px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-headwear {
-    position: fixed; 
-    left: 40px; 
-    top: 160px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.headwear {
-    position: absolute;
-    left: 45px;
-    top: 155px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 1; 
-}
-
-#bg-accessory1 {
-    position: fixed; 
-    left: 335px; 
-    top: 280px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.accessory1 {
-    position: absolute;
-    left: 350px;
-    top: 280px;
-    width: 85px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-accessory2 {
-    position: fixed; 
-    left: 335px; 
-    top: 400px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.accessory2 {
-    position: absolute;
-    left: 340px;
-    top: 395px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-socks {
-    position: fixed; 
-    left: 50px; 
-    top: 400px;   
-    width: 100px;   
-    height: 120px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.socks {
-    position: absolute;
-    left: 50px;
-    top: 410px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-.remove_upper {
-    position: fixed;
-    left: 285px;
-    top: 128px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 99999;
-}
-
-.remove_lower {
-    position: fixed;
-    left: 285px;
-    top: 278px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 99999;
-}
-
-.remove_shoes {
-    position: fixed;
-    left: 285px;
-    top: 428px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 99999;
-}
-
-.remove_eyewear {
-    position: fixed;
-    left: 428px;
-    top: 158px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 99999;
-}
-
-.remove_bag {
-    position: fixed;
-    left: 132px;
-    top: 278px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 999999;
-}
-
-.remove_headwear {
-    position: fixed;
-    left: 132px;
-    top: 158px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 99999;
-}
-
-.remove_accessory1 {
-    position: fixed;
-    left: 428px;
-    top: 278px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 999999;
-}
-
-.remove_accessory2 {
-    position: fixed;
-    left: 428px;
-    top: 398px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 99999;
-}
-
-.remove_socks {
-    position: fixed;
-    left: 122px;
-    top: 398px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 999999;
-}
-
-.slide {
-    width: 100%;
-    height: auto;
-    min-height: 700px; 
-    display: none;
-    background: white;
-    padding-top: 20px;
-}
-
-.slide.active-slide {
-    display: block;
-}
-
-
-
-
-#slide-lower h2 {
-    position: relative;   
-    top: -920px;          
-    left: 150px;;              
-    font-size: 24px;
-    color: #a1876c;
-    font-family: 'Canva Sans', sans-serif;
-    font-weight: bold;
     cursor: pointer;
 }
 
-#slide-eyewear h2 {
-    position: relative;   
-    top: -920px;        
-    left: 150px;;        
-    font-size: 24px;
-    color: #a1876c;
-    font-family: 'Canva Sans', sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#slide-shoes clothes {
-  position: relative;
-  top: -1000px;
-  left: 20px;
-  width: 180px;
-  height: 260px;
-  z-index: 1;
-  background-color: #eeeeee;
-}
-
-#slide-shoes add_icon {
-    position: relative;
-    left: 165px;
-    top: -1255px;
-    width: 30px;
+.logo {
+    position: absolute;
+    left: 85vw;
+    top: 1vh;
+    width: 180px;
     height: auto;
     cursor: pointer; 
-    z-index: 1;
-}
-
-
-#slide-bag clothes {
-  position: relative;
-  top: -1000px;
-  left: 20px;
-  width: 180px;
-  height: 260px;
-  z-index: 1;
-  background-color: #eeeeee;
-}
-
-#slide-headwear h2 {
-    position: relative;   
-    top: -920px;        
-    left: 150px;;        
-    font-size: 24px;
-    color: #a1876c;
-    font-family: 'Canva Sans', sans-serif;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#slide-bag add_icon {
-    position: relative;
-    left: 165px;
-    top: -1255px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 1;
-}
-
-#slide-accessory clothes {
-  position: relative;
-  top: -1000px;
-  left: 20px;
-  width: 180px;
-  height: 260px;
-  z-index: 1;
-  background-color: #eeeeee;
-}
-
-#slide-accessory add_icon {
-    position: relative;
-    left: 165px;
-    top: -1255px;
-    width: 30px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 1;
-}
-
-#slide-socks h2 {
-    position: relative;   
-    top: -920px;        
-    left: 150px;;        
-    font-size: 24px;
-    color: #a1876c;
-    font-family: 'Canva Sans', sans-serif;
-    font-weight: bold;
-    cursor: pointer;
 }
