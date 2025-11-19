@@ -1,331 +1,406 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  overflow: hidden; /* Prevent body from scrolling */
+:root {
+    --color-nav-bg: #a1876c;
+    --color-subheader-bg: #eae0d6;
+    --color-content-bg: #ffffff;
+    --color-accent-default: #eae0d6;
+    --color-accent-hover: #a1876c;
+    --color-text: #000000;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Canva Sans', sans-serif; 
+    --header-height: 130px; 
+    --content-max-width: 1200px;
 }
 
-.container {
-    display: flex;
-    width: 100vw; 
-    height: 100vh;
-    box-shadow: none; 
-    border-radius: 0; 
-    overflow: hidden;
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: var(--color-content-bg);
+    position: relative;
+    overflow-x: hidden;
+    font-family: var(--font-primary);
+    color: var(--color-text);
 }
 
 #square1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 300%; /* Allows for larger height */
-  background-color: #a1876c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--color-nav-bg);
+    z-index: 100;
 }
 
 #square2 {
-  position: absolute;
-  top: 10vh; /* Responsive position */
-  left: 0;
-  width: 100%;
-  height: 60vh;
-  background-color: #eae0d6;
-}
-
-#square3 {
-  position: absolute;
-  top: 10vh;
-  left: 0;
-  width: 70%;
-  height: 90vh; /* Responsive height */
-  background-color: #eae0d6;
-}
-
-#scrollContainer {
-  position: absolute; 
-  top: 20vh; /* Responsive position */
-  left: 40vw; /* Responsive position */
-  width: 60vw; /* Responsive width */
-  height: 80vh; /* Make height responsive to viewport */
-  overflow-y: auto; /* Enable vertical scrolling */
-  background-color: #ffffff;
-}
-
-#square4 {
-  width: 100%;
-  height: 200vh; /* Height to allow scrolling */
-  background-color: #ffffff;
-}
-
-.home-text {
-  position: absolute; 
-  left: 30vw; /* Responsive position */
-  top: 13vh; /* Responsive position */
-  font-family: 'Canva Sans', sans-serif; 
-  font-size: 2vw; /* Responsive font size */
-  font-weight: bold; 
-  cursor: move; 
-}
-
-.edit-text {
-  position: absolute; 
-  left: 60vw; /* Responsive position */
-  top: 13vh; /* Responsive position */
-  font-family: 'Canva Sans', sans-serif; 
-  font-size: 2vw; /* Responsive font size */
-  font-weight: bold; 
-  cursor: pointer; 
-}
-
-
-.rounded-upper {
     position: fixed;
-    left: 43%; 
-    top: 25%; 
-    width: 7.64vw; 
-    height: 3.22vh;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw; 
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif; 
-    border: 1px solid #ccc; 
-    cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s; 
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-subheader-bg); 
+    z-index: 99;
 }
 
-.rounded-upper.active {
-    background-color: #a1876c;
+#square3, #square4 {
+    display: none;
 }
 
-.rounded-lower {
+.name-text {
     position: fixed;
-    left: 54%;
-    top: 25%; 
-    width: 7.64vw; 
-    height: 3.22vh;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw;
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid #ccc; 
-    cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s;
-}
-
-.rounded-lower.active {
-    background-color: #a1876c;
-}
-
-.rounded-shoes {
-    position: fixed;
-    left: 65%; 
-    top: 25%; 
-    width: 7.64vw; 
-    height: 3.22vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size:1.2vw;
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif; 
-    border: 1px solid #ccc; 
-    cursor: pointer; 
-    z-index: 2;
-    transition: background-color 0.3s; 
-}
-
-.rounded-shoes.active {
-    background-color: #a1876c;
-}
-
-.rounded-eyewear {
-    position: fixed;
-    left: 76%; 
-    top: 25%; 
-    width: 7.64vw; 
-    height: 3.22vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw;
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid #ccc; 
-    cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s; 
-}
-
-.rounded-eyewear.active {
-    background-color: #a1876c; 
-}
-
-.rounded-bag {
-    position: fixed;
-    left: 87%; 
-    top: 25%; 
-    width: 7.64vw;
-    height: 3.22vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw; 
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif; 
-    border: 1px solid #ccc; 
-    cursor: pointer; 
-    z-index: 2;
-    transition: background-color 0.3s;
-}
-
-.rounded-bag.active {
-    background-color: #a1876c; 
-}
-
-.rounded-headwear {
-    position: fixed;
-    left: 43%; 
-    top: 33%; 
-    width: 7.64vw;
-    height: 3.22vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw; 
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid #ccc; 
-    cursor: pointer; 
-    z-index: 2;
-    transition: background-color 0.3s; 
-}
-
-.rounded-headwear.active {
-    background-color: #a1876c; 
-}
-
-.rounded-accessory {
-    position:fixed;
-    left: 54%; 
-    top: 33%; 
-    width: 7.64vw;
-    height: 3.22vh; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding:0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw; 
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif;
-    border: 1px solid #ccc; 
-    cursor: pointer; 
-    z-index: 2;
-    transition: background-color 0.3s; 
-}
-
-.rounded-accessory.active {
-    background-color: #a1876c; 
-}
-
-.rounded-socks {
-    position: fixed;
-    left: 65%; 
-    top: 33%; 
-    width: 7.64vw;
-    height: 3.22vh;  
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 0.5rem; 
-    background-color: #eae0d6;
-    border-radius: 25px; 
-    font-size: 1.2vw; 
-    text-align: center; 
-    font-family: 'Montserrat', sans-serif; 
-    border: 1px solid #ccc; 
-    cursor: pointer; 
-    z-index: 2;
-    transition: background-color 0.3s; 
-}
-
-.rounded-socks.active {
-    background-color: #a1876c; 
-}
-
-
-.line {
-    position: absolute;
-    left: 29.5vw;
-    top: 18vh;
-    height: 0.5vh; 
-    width: 7vw;
-    background-color: #000; 
-    transform: rotate(0deg); 
-    cursor: pointer; 
-}
-
-#recwhite {
-    position: fixed; 
-    left: 40vw; 
-    top: 20vh;   
-    width: 59vw;   
-    height: 20vh;   
-    cursor: pointer;   
-    opacity: 0.95;  
-    background-color: #ffffff; 
-    z-index: 1;     
-}
-
- .name-text {
-    position: absolute; 
-    left: 10%; 
-    top: 2%; 
-    font-family: 'Montserrat', sans-serif; 
-    font-size: 2vw; 
-    font-weight: 500;
-    cursor: pointer; 
+    left: 110px; 
+    top: 19px; 
+    font-family: var(--font-primary); 
+    font-size: 22px; 
+    font-weight: 400;
+    color: var(--color-text); 
+    z-index: 101;
 }
 
 .default_profile {
     position: fixed;
-    left: 5vw; 
-    top: 1vh;
-    width: 65px;
+    left: 30px; 
+    top: 8px;
+    width: 60px;
     height: auto;
-    cursor: pointer;
+    border-radius: 50%;
+    z-index: 101;
 }
 
 .logo {
     position: absolute;
-    left: 85vw;
-    top: 1vh;
-    width: 180px;
+    left: 1110x;
+    right: 20px;
+    top: 8px;
+    width: 150px;
     height: auto;
-    cursor: pointer; 
+    cursor: move; 
+    z-index: 101;
+}
+
+.home-text, .edit-text {
+    position: fixed; 
+    top: 85px; 
+    font-family: var(--font-secondary);
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.2s;
+}
+
+.home-text {
+    position: absolute; 
+    left: 400px; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
+}
+
+.edit-text {
+    position: absolute; 
+    left: 800px; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
+}
+
+.line {
+    position: fixed; 
+    height: 3px; 
+    width: 50px; 
+    background-color: var(--color-text); 
+    z-index: 100;
+    top: 115px; 
+    left: 800px; 
+    transform: translateX(calc(25px - 25px)); 
+}
+
+#scrollContainer {
+    position: relative;
+    padding-top: var(--header-height); 
+    height: 100vh;
+    overflow-y: auto; 
+    
+    padding-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* --- Category Buttons (Fixed Left Alignment) --- */
+.category-buttons {
+    width: 100%;
+    max-width: 700px; 
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-left: 20px; 
+}
+
+.rounded-upper, .rounded-lower, .rounded-shoes, .rounded-eyewear, 
+.rounded-bag, .rounded-headwear, .rounded-accessory, .rounded-socks {
+    position: static; 
+    flex: 0 0 calc(25% - 15px);
+    width: 110px; 
+    height: 35px;
+    padding: 5px 10px;
+    background-color: var(--color-accent-default);
+    border-radius: 25px; 
+    font-size: 1rem; 
+    border: 1px solid #ccc; 
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    z-index: 2;
+}
+
+.rounded-upper.active, 
+.rounded-lower.active, 
+.rounded-shoes.active, 
+.rounded-eyewear.active, 
+.rounded-bag.active, 
+.rounded-headwear.active, 
+.rounded-accessory.active, 
+.rounded-socks.active {
+    background-color: var(--color-accent-hover);
+    color: white;
+    border-color: var(--color-accent-hover);
+}
+
+/* --- Slide Container Styles --- */
+.slide {
+    width: 100%;
+    display: none; 
+    flex-direction: column; 
+    align-items: center;
+    
+    height: auto;
+    min-height: 700px; 
+    background: white;
+    padding-top: 20px;
+    position: relative;
+}
+
+.active-slide {
+    display: flex;
+}
+
+/* --- ADD ITEM CARD STYLES (Centered by .slide) --- */
+.add-item-card {
+  width: 100%;
+    max-width: 400px;  
+    min-height: 120px;  
+    max-height: 220px;
+    height: auto;  
+    background-color: #f7f7f7; 
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.add-item-icon {
+    font-size: 2.5rem;
+    font-weight: 300;
+    border: 2px solid var(--color-text);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.add-item-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.small-note {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #666;
+    margin-top: 2px;
+}
+
+/* --- Item Grid Styles (Left-Aligned Boxes) --- */
+.clothes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px); 
+    justify-content: flex-start;  
+    gap: 15px; 
+    width: 90%;
+    max-width: 900px; 
+    margin: 0 auto 50px; 
+    padding: 0 0 0 20px; 
+    text-align: center;
+}
+
+.clothes-container h2 {
+    position: static;
+    margin: 0;
+    width: auto;
+    text-align: left;
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.slide h2 {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    top: 250px; 
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    margin: 0;
+}
+
+
+#clothes {
+    display: none;
+}
+
+.item-card {
+    width: 200px; 
+    height: 300px; 
+    background-color: #f7f7f7; 
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden; 
+    
+}
+
+.item-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+}
+
+/* --- DELETE ICON STYLES for Image --- */
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    width: 25px; 
+    height: 25px;
+    z-index: 10;
+    
+    background: none; 
+    border-radius: 0;
+    padding: 0;
+}
+
+.delete-icon:hover {
+    opacity: 0.8;
+}
+
+/* --- DELETE CONFIRMATION MODAL --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+}
+
+.modal-box {
+    width: 280px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-family: var(--font-primary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #000;
+}
+
+.modal-box p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-btn {
+    width: 48%;
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-btn.cancel {
+    background: #e0e0e0;
+}
+
+.modal-btn.confirm {
+    background: #a1876c;
+    color: white;
+}
+
+
+.item-grid, .add_icon {
+    display: none; 
 }
