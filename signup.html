@@ -11,19 +11,67 @@
         <div class="image-section">
             <img src="sweater-bg.jpg" alt="Sweaters on a rack">
         </div>
+
         <div class="form-section">
             <div class="logo-container">
                 <img src="logo.png" alt="Wearify Logo" class="logo">
                 <p class="tagline">There's no longer hassle in fashion!</p>
             </div>
-            <form class="auth-form" id="signupForm"> 
-                <input type="text" placeholder="Enter first name">
-                <input type="text" placeholder="Enter username">
-                <input type="password" placeholder="Enter password">
+
+            <form class="auth-form" id="signupForm">
+                <input type="text" name="fullname" placeholder="Enter first name" required>
+                <input type="text" name="username" placeholder="Enter username" required>
+                <input type="password" name="password" placeholder="Enter password" id="passwordInput" required>
                 <button type="submit" class="btn">Sign up</button>
             </form>
+
+            <p id="responseMessage" style="color: white; margin-top: 10px;"></p>
             <a href="index.html" class="back-link">Go back to accounts</a>
         </div>
     </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("signupForm");
+    const passwordInput = document.getElementById("passwordInput");
+
+    // Delayed password masking
+    let maskTimeout;
+    passwordInput.addEventListener("input", () => {
+        passwordInput.type = "text"; // show actual
+        clearTimeout(maskTimeout);
+        maskTimeout = setTimeout(() => {
+            passwordInput.type = "password"; // mask after 1000 = 1 second
+        }, 100);
+    });
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fullname = document.querySelector("input[name='fullname']").value;
+        const username = document.querySelector("input[name='username']").value;
+        const password = passwordInput.value;
+
+        const responseMessage = document.getElementById("responseMessage");
+        responseMessage.textContent = "Processing...";
+
+        try {
+            const response = await fetch("php/signup.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ fullname, username, password, email: username + "@wearify.com" })
+            });
+
+            const result = await response.json();
+            responseMessage.style.color = result.status === "success" ? "lightgreen" : "red";
+            responseMessage.textContent = result.message;
+        } catch (error) {
+            responseMessage.style.color = "red";
+            responseMessage.textContent = "Error: Could not connect to server.";
+            console.log(error);
+        }
+    });
+});
+</script>
 </body>
 </html>
