@@ -65,6 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
             responseMessage.style.color = result.status === "success" ? "lightgreen" : "red";
             responseMessage.textContent = result.message;
+
+            if(result.status === "success"){
+                setTimeout(() => { window.location.href = "login.html"; }, 1000);
+            }
         } catch (error) {
             responseMessage.style.color = "red";
             responseMessage.textContent = "Error: Could not connect to server.";
