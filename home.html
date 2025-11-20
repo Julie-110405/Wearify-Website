@@ -1,156 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://db.onlinewebfonts.com/c/274507bb1293902e80e0d824d978be9e?family=Canva+Sans" rel="stylesheet">
-    <title>Wearify Edit Page</title>
-    <link rel="stylesheet" href="edit.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://db.onlinewebfonts.com/c/274507bb1293902e80e0d824d978be9e?family=Canva+Sans" rel="stylesheet">
+  <title>Wearify HomePage</title>
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    
     <div id="square1"></div>
-    <div id="square2"></div> 
-    
+    <div id="square2"></div>
+    <div id="square3"></div>
+
+    <div id="home-link-group">
+    <div class="home-text">Home</div>
+    <div class="line"></div>
+    </div>
+    <div class="edit-text">Edit</div>
     <div class="name-text">Mia's Closet</div>
     <img src="default_profile.png" alt="Profile" class="default_profile">
     <img src="logo.png" alt="Wearify" class="logo">
-    
-    <div class="home-text">Home</div>
-    <div class="edit-text active-link">Edit</div> 
-    <div class="line"></div> 
-    
-    <div id="square3"></div> 
-    
-    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+    <div class="rounded-upper" onclick="toggleColor(this)">Upper</div>
+    <div class="rounded-lower" onclick="toggleColor(this)">Lower</div>
+    <div class="rounded-shoes" onclick="toggleColor(this)">Shoes</div>
+    <div class="rounded-eyewear" onclick="toggleColor(this)">Eyewear</div>
+    <div class="rounded-bag" onclick="toggleColor(this)">Bag</div>
+    <div class="rounded-headwear" onclick="toggleColor(this)">Headwear</div>
+    <div class="rounded-accessory" onclick="toggleColor(this)">Accessory</div>
+    <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
+    <div id="recwhite"></div>
+
+    <div id="group-upper" class="tooltip-trigger" style="left:182px; top:130px; width:130px; height:140px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_upper">
+        <div id="bg-upper"></div>
+    <span class="tooltip-text">Upper</span>
+    </div>
+
+    <div id="group-lower" class="tooltip-trigger" style="left:182px; top:280px; width:130px; height:140px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_lower">
+        <div id="bg-lower"></div>
+    <span class="tooltip-text">Lower</span>
+    </div>
+
+    <div id="group-shoes" class="tooltip-trigger" style="left:182px; top:430px; width:130px; height:100px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_shoes">
+        <div id="bg-shoes"></div>
+    <span class="tooltip-text">Shoes</span>
+    </div>
+
+    <div id="group-eyewear" class="tooltip-trigger" style="left:335px; top:160px; width:120px; height:90px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_eyewear">
+        <div id="bg-eyewear"></div>
+    <span class="tooltip-text">Eyewear</span>
+    </div>
+
+    <div id="group-bag" class="tooltip-trigger" style="left:40px; top:280px; width:120px; height:90px; z-index: 99999;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_bag">
+        <div id="bg-bag"></div>
+    <span class="tooltip-text">Bag</span>
+    </div>
+
+    <div id="group-headwear" class="tooltip-trigger" style="left:40px; top:160px; width:120px; height:90px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_headwear">
+        <div id="bg-headwear"></div>
+    <span class="tooltip-text">Headwear</span>
+    </div>
+
+    <div id="group-accessory1" class="tooltip-trigger" style="left:335px; top:280px; width:120px; height:90px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_accessory1">
+        <div id="bg-accessory1"></div>
+    <span class="tooltip-text">Accessory 1</span>
+    </div>
+
+
+    <div id="group-accessory2" class="tooltip-trigger" style="left:335px; top:400px; width:120px; height:90px;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_accessory2">
+        <div id="bg-accessory2"></div>
+    <span class="tooltip-text">Accessory 2</span>
+    </div>
+
+    <div id="group-socks" class="tooltip-trigger" style="left:50px; top:400px; width:100px; height:120px; z-index: 99999;">
+        <img src="remove_icon.png" alt="Wearify" class="remove_socks">  
+        <div id="bg-socks"></div>
+    <span class="tooltip-text">Socks</span>
+    </div>
 
     <div id="scrollContainer">
         <div id="square4"></div>
-        
-        <div class="category-buttons">
-            <div class="rounded-upper active" data-target="slide-upper" onclick="toggleColor(this)">Upper</div> 
-            <div class="rounded-lower" data-target="slide-lower" onclick="toggleColor(this)">Lower</div>
-            <div class="rounded-shoes" data-target="slide-shoes" onclick="toggleColor(this)">Shoes</div>
-            <div class="rounded-eyewear" data-target="slide-eyewear" onclick="toggleColor(this)">Eyewear</div>
-            <div class="rounded-bag" data-target="slide-bag" onclick="toggleColor(this)">Bag</div>
-            <div class="rounded-headwear" data-target="slide-headwear" onclick="toggleColor(this)">Headwear</div>
-            <div class="rounded-accessory" data-target="slide-accessory" onclick="toggleColor(this)">Accessory</div>
-            <div class="rounded-socks" data-target="slide-socks" onclick="toggleColor(this)">Socks</div>
-        </div>
-        
-        <div class="slide active-slide" id="slide-upper">
-            <div class="add-item-card" id="addItemCard" data-category="upper">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-upper"></div>
+
+        <!-- UPPER SLIDE -->
+        <div class="slide" id="slide-upper">
+            <div id="clothes"></div>
+            <img src="add_icon.png" class="add_icon">
         </div>
 
+        <!-- LOWER SLIDE -->
         <div class="slide" id="slide-lower">
-            <div class="add-item-card" data-category="lower">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-lower">
-                <h2>No items yet. Please add some items!</h2>
-            </div>
+            <h2>No items yet. Please add some items!</h2>
         </div>
 
+        <!-- SHOES SLIDE -->
         <div class="slide" id="slide-shoes">
-            <div class="add-item-card" data-category="shoes">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-shoes"></div>
+            <div id="clothes"></div>
+            <img src="add_icon.png" class="add_icon">
         </div>
 
+        <!-- EYEWEAR SLIDE -->
         <div class="slide" id="slide-eyewear">
-            <div class="add-item-card" data-category="eyewear">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-eyewear">
-                 <h2>No items yet. Please add some items!</h2>
-            </div>
+            <h2>No items yet. Please add some items!</h2>
         </div>
 
+        <!-- BAG SLIDE -->
         <div class="slide" id="slide-bag">
-            <div class="add-item-card" data-category="bag">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-bag"></div>
+            <div id="clothes"></div>
+            <img src="add_icon.png" class="add_icon">
         </div>
 
+        <!-- HEADWEAR SLIDE -->
         <div class="slide" id="slide-headwear">
-            <div class="add-item-card" data-category="headwear">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-headwear">
-                 <h2>No items yet. Please add some items!</h2>
-            </div>
+            <h2>No items yet. Please add some items!</h2>
         </div>
 
+        <!-- ACCESSORY SLIDE -->
         <div class="slide" id="slide-accessory">
-            <div class="add-item-card" data-category="accessory">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-accessory"></div>
+            <div id="clothes"></div>
+            <img src="add_icon.png" class="add_icon">
         </div>
 
+        <!-- SOCKS SLIDE -->
         <div class="slide" id="slide-socks">
-            <div class="add-item-card" data-category="socks">
-                <div class="add-item-icon">+</div>
-                <div class="add-item-text">
-                    Add Item
-                    <p class="small-note">image with no background is preferable</p>
-                </div>
-            </div>
-            <div class="clothes-container" id="clothes-socks">
-                 <h2>No items yet. Please add some items!</h2>
-            </div>
+            <h2>No items yet. Please add some items!</h2>
         </div>
-        
-    </div>
-    <!-- DELETE CONFIRMATION MODAL -->
-<div id="deleteModal" class="modal-overlay">
-    <div class="modal-box">
-        <h3>Delete Item?</h3>
-        <p>This action cannot be undone.</p>
 
-        <div class="modal-buttons">
-            <button id="cancelDelete" class="modal-btn cancel">Cancel</button>
-            <button id="confirmDelete" class="modal-btn confirm">Delete</button>
-        </div>
     </div>
-</div>
 
-    
-    <script src="edit.js"></script>
-    
+
+    <script src="home.js"></script>
+    <script>
+        let activeElement = null;
+
+        function toggleColor(element) {
+            if (activeElement) {
+                activeElement.classList.remove("active");
+            }
+            if (activeElement !== element) {
+                element.classList.add("active");
+                activeElement = element; 
+            } else {
+                activeElement = null; 
+            }
+        }
+    </script>
 </body>
 </html>

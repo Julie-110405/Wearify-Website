@@ -1,277 +1,700 @@
-:root {
-    --color-nav-bg: #a1876c;
-    --color-subheader-bg: #eae0d6;
-    --color-content-bg: #ffffff;
-    --color-accent-default: #eae0d6;
-    --color-accent-hover: #a1876c;
-    --color-text: #000000;
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Canva Sans', sans-serif; 
-    --header-height: 130px; 
-    --content-max-width: 1200px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden; 
-}
-
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    width: 100vw;
-    background-color: var(--color-content-bg);
-    position: relative;
-    overflow-x: hidden;
-    font-family: var(--font-primary);
-    color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f0f0f0;
+  position: relative;
+  overflow: hidden;
 }
 
 #square1 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: var(--color-nav-bg);
-    z-index: 100;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 300px;
+  background-color: #a1876c;
 }
 
 #square2 {
-    position: fixed;
-    top: 70px;
-    left: 0;
+  position: fixed;
+  top: 70px;
+  left: 0px;
+  width: 100vw;
+  height: 60px;
+  background-color: #eae0d6;
+}
+
+#square3 {
+  position: fixed;
+  top: 70px;
+  left: 0px;
+  width: 51vw;
+  height: calc(100vh - 70px);
+  background-color: #eae0d6;
+}
+
+#scrollContainer {
+    position: fixed; 
+    top: 130px; 
+    left: 41vw; 
+    width: 60vw;
+    height: calc(100vh - 130px - 10px);
+    overflow-y: auto;
+    background-color: #ffffff; 
+}
+
+#square4 {
     width: 100%;
-    height: 60px;
-    background-color: var(--color-subheader-bg); 
-    z-index: 99;
+    height: 200vh; 
+    background-color: #ffffff; 
 }
 
-#square3, #square4 {
-    display: none;
-}
-
-.name-text {
+.rounded-upper {
     position: fixed;
+    left: 45.5vw; 
+    top: 150px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px; 
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif; 
+    border: 1px solid #ccc; 
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s; 
+}
+
+.rounded-upper.active {
+    background-color: #a1876c;
+}
+
+.rounded-lower {
+    position: fixed;
+    left: 55.0vw;
+    top: 150px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px;
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc; 
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+.rounded-lower.active {
+    background-color: #a1876c;
+}
+
+.rounded-shoes {
+    position: fixed;
+    left: 64.5vw; 
+    top: 150px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px;
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif; 
+    border: 1px solid #ccc; 
+    cursor: pointer; 
+    z-index: 2;
+    transition: background-color 0.3s; 
+}
+
+.rounded-shoes.active {
+    background-color: #a1876c;
+}
+
+.rounded-eyewear {
+    position: fixed;
+    left: 74.0vw; 
+    top: 150px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px;
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc; 
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s; 
+}
+
+.rounded-eyewear.active {
+    background-color: #a1876c; 
+}
+
+.rounded-bag {
+    position: fixed;
+    left: 45.5vw; 
+    top: 195px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px; 
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif; 
+    border: 1px solid #ccc; 
+    cursor: pointer; 
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+.rounded-bag.active {
+    background-color: #a1876c; 
+}
+
+.rounded-headwear {
+    position: fixed;
+    left: 55.0vw; 
+    top: 195px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px; 
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc; 
+    cursor: pointer; 
+    z-index: 2;
+    transition: background-color 0.3s; 
+}
+
+.rounded-headwear.active {
+    background-color: #a1876c; 
+}
+
+.rounded-accessory {
+    position:fixed;
+    left: 64.5vw; 
+    top: 195px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px; 
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #ccc; 
+    cursor: pointer; 
+    z-index: 2;
+    transition: background-color 0.3s; 
+}
+
+.rounded-accessory.active {
+    background-color: #a1876c; 
+}
+
+.rounded-socks {
+    position: fixed;
+    left: 74.0vw; 
+    top: 195px; 
+    width: 110px; 
+    height: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 5px; 
+    background-color: #eae0d6;
+    border-radius: 25px; 
+    font-size: 16px; 
+    text-align: center; 
+    font-family: 'Montserrat', sans-serif; 
+    border: 1px solid #ccc; 
+    cursor: pointer; 
+    z-index: 2;
+    transition: background-color 0.3s; 
+}
+
+.rounded-socks.active {
+    background-color: #a1876c; 
+}
+
+#home-link-group{
+    position: fixed;
+    left: 400px;
+    top: 85px;
+    width: 80px;
+    height: 33px;
+    z-index: 10;
+}
+ .home-text {
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: move; 
+}
+.line {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    height: 3px; 
+    width: 70px;
+    background-color: #000; 
+    transform: rotate(0deg); 
+    cursor: pointer; 
+}
+
+ .edit-text {
+    position: absolute; 
+    left: 65vw; 
+    top: 85px; 
+    font-family: 'Canva Sans', sans-serif; 
+    font-size: 24px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+ .name-text {
+    position: absolute; 
     left: 110px; 
     top: 19px; 
-    font-family: var(--font-primary); 
+    font-family: 'Montserrat', sans-serif; 
     font-size: 22px; 
-    font-weight: 400;
-    color: var(--color-text); 
-    z-index: 101;
+    font-weight: 500;
+    cursor: pointer; 
 }
 
 .default_profile {
-    position: fixed;
+    position: absolute;
     left: 30px; 
     top: 8px;
     width: 60px;
     height: auto;
-    border-radius: 50%;
-    z-index: 101;
+    cursor: pointer;
 }
 
 .logo {
     position: absolute;
-    left: 1110x;
-    right: 20px;
+    right: 2vw;
     top: 8px;
     width: 150px;
     height: auto;
-    cursor: move; 
-    z-index: 101;
+    cursor: pointer; 
 }
 
-.home-text, .edit-text {
-    position: fixed; 
-    top: 85px; 
-    font-family: var(--font-secondary);
-    font-size: 24px; 
-    font-weight: bold; 
-    cursor: pointer;
-    z-index: 100;
-    transition: color 0.2s;
+
+
+#clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
 }
 
-.home-text {
-    position: absolute; 
-    left: 400px; 
-    top: 85px; 
-    font-family: 'Canva Sans', sans-serif; 
-    font-size: 24px; 
-    font-weight: bold; 
-    cursor: move; 
-}
-
-.edit-text {
-    position: absolute; 
-    left: 800px; 
-    top: 85px; 
-    font-family: 'Canva Sans', sans-serif; 
-    font-size: 24px; 
-    font-weight: bold; 
-    cursor: move; 
-}
-
-.line {
-    position: fixed; 
-    height: 3px; 
-    width: 50px; 
-    background-color: var(--color-text); 
-    z-index: 100;
-    top: 115px; 
-    left: 800px; 
-    transform: translateX(calc(25px - 25px)); 
-}
-
-#scrollContainer {
+.add_icon {
     position: relative;
-    padding-top: var(--header-height); 
-    height: 100vh;
-    overflow-y: auto; 
-    
-    padding-bottom: 50px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
 }
 
-/* --- Category Buttons (Fixed Left Alignment) --- */
-.category-buttons {
-    width: 100%;
-    max-width: 700px; 
-    margin: 40px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 15px;
-    padding-left: 20px; 
+#recwhite {
+    position: fixed; 
+    left: 41vw; 
+    top: 130px;   
+    width: 60vw;   
+    height: 110px;   
+    cursor: pointer;   
+    opacity: 0.95;  
+    background-color: #ffffff; 
+    z-index: 1;     
 }
 
-.rounded-upper, .rounded-lower, .rounded-shoes, .rounded-eyewear, 
-.rounded-bag, .rounded-headwear, .rounded-accessory, .rounded-socks {
-    position: static; 
-    flex: 0 0 calc(25% - 15px);
-    width: 110px; 
-    height: 35px;
-    padding: 5px 10px;
-    background-color: var(--color-accent-default);
-    border-radius: 25px; 
-    font-size: 1rem; 
-    border: 1px solid #ccc; 
-    cursor: pointer;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
-    z-index: 2;
+
+.tooltip-trigger {
+  position: fixed;       
+  display: block;
+  cursor: pointer;
+  z-index: 3000;
 }
 
-.rounded-upper.active, 
-.rounded-lower.active, 
-.rounded-shoes.active, 
-.rounded-eyewear.active, 
-.rounded-bag.active, 
-.rounded-headwear.active, 
-.rounded-accessory.active, 
-.rounded-socks.active {
-    background-color: var(--color-accent-hover);
-    color: white;
-    border-color: var(--color-accent-hover);
+.tooltip-trigger .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  z-index: 5;
 }
 
-/* --- Slide Container Styles --- */
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  max-width: 220px;
+  background-color: #a1876c;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  position: absolute;
+  bottom: calc(100% + 8px); 
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.18s ease, visibility 0.18s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #a1876c transparent transparent transparent;
+}
+
+.tooltip-trigger:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+#group-upper {
+    position: fixed; 
+    left: 13.32vw; 
+    top: 130px;    
+    width: 130px; 
+    height: 140px; 
+    z-index: 1;
+}
+#bg-upper {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_upper {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+#group-lower {
+    position: fixed; 
+    left: 13.32vw; 
+    top: 280px;    
+    width: 130px; 
+    height: 140px; 
+    z-index: 1;
+}
+#bg-lower {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_lower {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+#group-shoes {
+    position: fixed; 
+    left: 13.32vw; 
+    top: 430px;    
+    width: 130px; 
+    height: 100px; 
+    z-index: 1;
+}
+#bg-shoes {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_shoes {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 9999999;
+}
+
+#group-eyewear {
+    position: fixed; 
+    left: 30.52vw; 
+    top: 160px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-eyewear {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_eyewear {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+
+
+#group-bag {
+    position: fixed; 
+    left: 2.93vw; 
+    top: 280px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-bag {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_bag {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 999999;
+}
+
+
+
+#group-headwear {
+    position: fixed; 
+    left: 2.93vw; 
+    top: 160px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-headwear {
+    position: absolute; 
+    left: 0;
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_headwear {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 99999;
+}
+
+
+
+#group-accessory1 {
+    position: fixed; 
+    left: 24.52vw; 
+    top: 280px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-accessory1 {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_accessory1 {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 999999;
+}
+
+
+
+#group-accessory2 {
+    position: fixed; 
+    left: 24.52vw; 
+    top: 400px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-accessory2 {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_accessory2 {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 9999999;
+}
+
+
+
+#group-socks {
+    position: fixed; 
+    left: 3.66vw; 
+    top: 400px;    
+    width: 100px; 
+    height: 120px; 
+    z-index: 1;
+}
+#bg-socks {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
+.remove_socks {
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 999999;
+}
+
+
+
+
+
+
+
+
 .slide {
     width: 100%;
-    display: none; 
-    flex-direction: column; 
-    align-items: center;
-    
     height: auto;
     min-height: 700px; 
+    display: none;
     background: white;
     padding-top: 20px;
-    position: relative;
 }
 
-.active-slide {
-    display: flex;
+.slide.active-slide {
+    display: block;
 }
 
-/* --- ADD ITEM CARD STYLES (Centered by .slide) --- */
-.add-item-card {
-  width: 100%;
-    max-width: 400px;  
-    min-height: 120px;  
-    max-height: 220px;
-    height: auto;  
-    background-color: #f7f7f7; 
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 50px;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    
-    margin-left: auto; 
-    margin-right: auto;
-}
 
-.add-item-icon {
-    font-size: 2.5rem;
-    font-weight: 300;
-    border: 2px solid var(--color-text);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1;
-}
 
-.add-item-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.2;
-}
 
-.small-note {
-    font-size: 0.7rem;
-    font-weight: 400;
-    color: #666;
-    margin-top: 2px;
-}
-
-/* --- Item Grid Styles (Left-Aligned Boxes) --- */
-.clothes-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 200px); 
-    justify-content: flex-start;  
-    gap: 15px; 
-    width: 90%;
-    max-width: 900px; 
-    margin: 0 auto 50px; 
-    padding: 0 0 0 20px; 
-    text-align: center;
-}
-
-.clothes-container h2 {
-    position: static;
-    margin: 0;
-    width: auto;
-    text-align: left;
+#slide-lower h2 {
+    position: absolute; 
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%); 
     font-size: 24px;
     color: #a1876c;
     font-family: 'Canva Sans', sans-serif;
@@ -279,128 +702,96 @@ body {
     cursor: pointer;
 }
 
-.slide h2 {
-    position: absolute;
-    left: 50%; 
-    transform: translateX(-50%); 
-    top: 250px; 
-    width: 90%;
-    max-width: 700px;
-    text-align: center;
-    margin: 0;
+#slide-eyewear h2 {
+    position: relative;   
+    top: -920px;        
+    left: 150px;;        
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-
-#clothes {
-    display: none;
+#slide-shoes clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
 }
 
-.item-card {
-    width: 200px; 
-    height: 300px; 
-    background-color: #f7f7f7; 
-    border: 1px solid #ddd;
-    border-radius: 1px;
+#slide-shoes add_icon {
     position: relative;
-    overflow: hidden; 
-    
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
 }
 
-.item-image-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+#slide-bag clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
 }
 
-.item-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    display: block;
-}
-
-/* --- DELETE ICON STYLES for Image --- */
-.delete-icon {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    width: 25px; 
-    height: 25px;
-    z-index: 10;
-    
-    background: none; 
-    border-radius: 0;
-    padding: 0;
-}
-
-.delete-icon:hover {
-    opacity: 0.8;
-}
-
-/* --- DELETE CONFIRMATION MODAL --- */
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    display: none; 
-    justify-content: center;
-    align-items: center;
-    z-index: 5000;
-}
-
-.modal-box {
-    width: 280px;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    font-family: var(--font-primary);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.modal-box h3 {
-    margin: 0 0 8px;
-    font-size: 20px;
-    color: #000;
-}
-
-.modal-box p {
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 20px;
-}
-
-.modal-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.modal-btn {
-    width: 48%;
-    padding: 8px 0;
-    border: none;
-    border-radius: 6px;
-    font-size: 14px;
+#slide-headwear h2 {
+    position: relative;   
+    top: -920px;        
+    left: 150px;;        
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
     cursor: pointer;
 }
 
-.modal-btn.cancel {
-    background: #e0e0e0;
+#slide-bag add_icon {
+    position: relative;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
 }
 
-.modal-btn.confirm {
-    background: #a1876c;
-    color: white;
+#slide-accessory clothes {
+  position: relative;
+  top: -1000px;
+  left: 20px;
+  width: 180px;
+  height: 260px;
+  z-index: 1;
+  background-color: #eeeeee;
 }
 
+#slide-accessory add_icon {
+    position: relative;
+    left: 165px;
+    top: -1255px;
+    width: 30px;
+    height: auto;
+    cursor: pointer; 
+    z-index: 1;
+}
 
-.item-grid, .add_icon {
-    display: none; 
+#slide-socks h2 {
+    position: relative;   
+    top: -920px;        
+    left: 150px;;        
+    font-size: 24px;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
 }
