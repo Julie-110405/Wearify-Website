@@ -1,69 +1,69 @@
 <?php
 header("Content-Type: application/json");
 
-// Enable debugging (comment out in production)
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
-// Include DB
+// Include database connection
 require 'db.php';
 
 // Read JSON input
-$raw = file_get_contents("php://input");
-$data = json_decode($raw, true);
+$input = file_get_contents("php://input");
+$data = json_decode($input, true);
 
+// Validate JSON
 if (!$data) {
-    echo json_encode(["status" => "error", "message" => "Invalid JSON received."]);
+    echo json_encode(["status" => "error", "message" => "Invalid JSON"]);
     exit;
 }
 
-// Extract fields safely
-$fullname = trim($data['fullname'] ?? '');
-$username = trim($data['username'] ?? '');
-$email = trim($data['email'] ?? '');
-$password = trim($data['password'] ?? '');
+$fullname = trim($data["fullname"] ?? "");
+$username = trim($data["username"] ?? "");
+$email = trim($data["email"] ?? "");
+$password = trim($data["password"] ?? "");
 
-// Validate empty fields
+// Validate required fields
 if ($fullname === "" || $username === "" || $email === "" || $password === "") {
-    echo json_encode(["status" => "error", "message" => "All fields are required."]);
+    echo json_encode(["status" => "error", "message" => "All fields required"]);
     exit;
 }
 
-// Optional username length validation
-if (strlen($username) < 3) {
-    echo json_encode(["status" => "error", "message" => "Username must be at least 3 characters."]);
+// Check username
+$checkUser = $conn->prepare("SELECT id FROM users WHERE username = ?");
+$checkUser->bind_param("s", $username);
+$checkUser->execute();
+$checkUser->store_result();
+if ($checkUser->num_rows > 0) {
+    echo json_encode(["status" => "error", "message" => "Username already exists"]);
     exit;
 }
+$checkUser->close();
 
-// Check email duplication
-$check = $conn->prepare("SELECT id FROM users WHERE email = ?");
-$check->bind_param("s", $email);
-$check->execute();
-$check->store_result();
-
-if ($check->num_rows > 0) {
+// Check email
+$checkEmail = $conn->prepare("SELECT id FROM users WHERE email = ?");
+$checkEmail->bind_param("s", $email);
+$checkEmail->execute();
+$checkEmail->store_result();
+if ($checkEmail->num_rows > 0) {
     echo json_encode(["status" => "error", "message" => "Email already exists"]);
     exit;
 }
-$check->close();
+$checkEmail->close();
 
-// Insert user (plain text password)
+// Hash password (ENABLED — recommended for public)
+//$hashed = password_hash($password, PASSWORD_DEFAULT);
+// Hash password (DISABLED — storing plain text)
+$hashed = $password;
+
+
+// Insert
 $stmt = $conn->prepare("
     INSERT INTO users (fullname, username, email, password)
     VALUES (?, ?, ?, ?)
 ");
-
-if (!$stmt) {
-    echo json_encode(["status" => "error", "message" => "Database error: prepare() failed"]);
-    exit;
-}
-
-$stmt->bind_param("ssss", $fullname, $username, $email, $password);
+$stmt->bind_param("ssss", $fullname, $username, $email, $hashed);
 
 if ($stmt->execute()) {
     echo json_encode(["status" => "success", "message" => "Signup successful!"]);
 } else {
-    echo json_encode(["status" => "error", "message" => "Signup failed. Database error."]);
+    echo json_encode(["status" => "error", "message" => "Database insert failed"]);
 }
 
 $stmt->close();
