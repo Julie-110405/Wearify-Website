@@ -693,7 +693,7 @@ body {
 #slide-lower h2 {
     position: absolute; 
     top: 50%;
-    left: 40%;
+    left: 50%;
     transform: translate(-50%, -50%); 
     font-size: 24px;
     color: #a1876c;
@@ -713,7 +713,7 @@ body {
     cursor: pointer;
 }
 
-#slide-shoes clothes {
+#slide-shoes .clothes {
   position: relative;
   top: -1000px;
   left: 20px;
@@ -723,7 +723,7 @@ body {
   background-color: #eeeeee;
 }
 
-#slide-shoes add_icon {
+#slide-shoes .add_icon {
     position: relative;
     left: 165px;
     top: -1255px;
@@ -734,7 +734,7 @@ body {
 }
 
 
-#slide-bag clothes {
+#slide-bag .clothes {
   position: relative;
   top: -1000px;
   left: 20px;
@@ -755,7 +755,7 @@ body {
     cursor: pointer;
 }
 
-#slide-bag add_icon {
+#slide-bag .add_icon {
     position: relative;
     left: 165px;
     top: -1255px;
@@ -765,7 +765,7 @@ body {
     z-index: 1;
 }
 
-#slide-accessory clothes {
+#slide-accessory .clothes {
   position: relative;
   top: -1000px;
   left: 20px;
@@ -775,7 +775,7 @@ body {
   background-color: #eeeeee;
 }
 
-#slide-accessory add_icon {
+#slide-accessory .add_icon {
     position: relative;
     left: 165px;
     top: -1255px;
