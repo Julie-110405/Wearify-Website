@@ -45,6 +45,7 @@ if ($password === $user['password']) {
     // Save user session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
+    $_SESSION['fullname'] = $user['fullname'];
 
     echo json_encode([
         "status" => "success",

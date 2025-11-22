@@ -65,8 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
             responseMessage.textContent = result.message;
 
             if(result.status === "success"){
-                setTimeout(() => { window.location.href = "home.html"; }, 1000);
+                setTimeout(() => { window.location.href = "home.php"; }, 1000);
             }
+            
         } catch (error) {
             responseMessage.style.color = "red";
             responseMessage.textContent = "Error: Could not connect to server.";
