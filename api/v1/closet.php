@@ -1,8 +1,15 @@
 <?php
+session_start();
 require_once '../../config/db_connect.php';
 header('Content-Type: application/json');
 
-$user_id = 1; // TODO: swap with authenticated user id
+// Ensure the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(["success" => false, "message" => "Unauthorized. Please log in."]);
+    exit;
+}
+
+$user_id = $_SESSION['user_id']; // Logged-in user ID
 
 function respond($success, $payload = [], $status = 200) {
     http_response_code($status);
@@ -18,7 +25,11 @@ function respond($success, $payload = [], $status = 200) {
 try {
     $method = $_SERVER['REQUEST_METHOD'];
 
+    // ============================
+    //          UPLOAD
+    // ============================
     if ($method === 'POST') {
+
         if (!isset($_FILES['item_image'], $_POST['category'])) {
             respond(false, 'Missing image or category', 400);
         }
@@ -60,8 +71,13 @@ try {
             'category'  => $category,
             'image_url' => $imagePath
         ], 201);
+    }
 
-    } elseif ($method === 'GET') {
+    // ============================
+    //          FETCH USER ITEMS
+    // ============================
+    elseif ($method === 'GET') {
+
         $stmt = $pdo->prepare("
             SELECT item_id, category, image_url
             FROM items
@@ -72,24 +88,21 @@ try {
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         respond(true, ['data' => $items], 200);
+    }
 
-    } elseif ($method === 'DELETE') {
+    // ============================
+    //          DELETE ITEM
+    // ============================
+    elseif ($method === 'DELETE') {
+
         $raw = file_get_contents('php://input');
-        $payload = [];
+        $payload = json_decode($raw, true);
 
-        if ($raw) {
-            $json = json_decode($raw, true);
-            if (json_last_error() === JSON_ERROR_NONE) {
-                $payload = $json;
-            } else {
-                parse_str($raw, $payload);
-            }
-        }
-
-        $item_id = isset($payload['item_id']) ? (int)$payload['item_id'] : null;
-        if (!$item_id) {
+        if (!isset($payload['item_id'])) {
             respond(false, 'Missing item_id', 400);
         }
+
+        $item_id = (int)$payload['item_id'];
 
         $stmt = $pdo->prepare("
             SELECT image_url
@@ -106,6 +119,7 @@ try {
             respond(false, 'Item not found or unauthorized', 404);
         }
 
+        // Delete record
         $stmt = $pdo->prepare("
             DELETE FROM items
             WHERE item_id = :item_id AND user_id = :user_id
@@ -115,14 +129,16 @@ try {
             ':user_id' => $user_id
         ]);
 
+        // Delete file
         $imagePath = '../../' . $item['image_url'];
         if (is_file($imagePath)) {
-            @unlink($imagePath);
+            unlink($imagePath);
         }
 
         respond(true, ['message' => 'Item deleted'], 200);
+    }
 
-    } else {
+    else {
         respond(false, 'Method not allowed', 405);
     }
 
@@ -131,3 +147,4 @@ try {
 } catch (Exception $e) {
     respond(false, 'Server error: ' . $e->getMessage(), 500);
 }
+?>

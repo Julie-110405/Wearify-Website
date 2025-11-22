@@ -1,5 +1,6 @@
 <?php
 header("Content-Type: application/json");
+session_start();
 
 // Enable debugging
 error_reporting(E_ALL);
@@ -38,11 +39,17 @@ if ($result->num_rows === 0) {
 
 $user = $result->fetch_assoc();
 
-// Check plain-text password
+// Check plain-text password (⚠ recommended to change to hashed later)
 if ($password === $user['password']) {
+
+    // Save user session
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+
     echo json_encode([
         "status" => "success",
-        "message" => "Login successful! Welcome " . $user['fullname']
+        "message" => "Login successful! Welcome " . $user['fullname'],
+        "user_id" => $user['id']
     ]);
 } else {
     echo json_encode(["status" => "error", "message" => "Incorrect password."]);
