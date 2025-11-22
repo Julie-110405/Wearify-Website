@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         responseMessage.textContent = "Processing...";
 
         try {
-            const response = await fetch("http://localhost/Wearify-Website/php/signup.php", {
+            const response = await fetch("http://localhost/Wearify-Website/signup.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ fullname, username, password, email: fullname + "@wearify.com" })

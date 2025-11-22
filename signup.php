@@ -8,7 +8,6 @@ require 'db.php';
 $input = file_get_contents("php://input");
 $data = json_decode($input, true);
 
-// Validate JSON
 if (!$data) {
     echo json_encode(["status" => "error", "message" => "Invalid JSON"]);
     exit;
@@ -19,7 +18,6 @@ $username = trim($data["username"] ?? "");
 $email = trim($data["email"] ?? "");
 $password = trim($data["password"] ?? "");
 
-// Validate required fields
 if ($fullname === "" || $username === "" || $email === "" || $password === "") {
     echo json_encode(["status" => "error", "message" => "All fields required"]);
     exit;
@@ -47,11 +45,8 @@ if ($checkEmail->num_rows > 0) {
 }
 $checkEmail->close();
 
-// Hash password (ENABLED — recommended for public)
-//$hashed = password_hash($password, PASSWORD_DEFAULT);
-// Hash password (DISABLED — storing plain text)
+// Hash password (plain text for now)
 $hashed = $password;
-
 
 // Insert
 $stmt = $conn->prepare("

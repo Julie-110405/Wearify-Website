@@ -39,9 +39,8 @@ if ($result->num_rows === 0) {
 
 $user = $result->fetch_assoc();
 
-// Check plain-text password (⚠ recommended to change to hashed later)
+// Check plain-text password
 if ($password === $user['password']) {
-
     // Save user session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         responseMessage.textContent = "Processing...";
 
         try {
-            const response = await fetch("php/login.php", {
+            const response = await fetch("login.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password })
