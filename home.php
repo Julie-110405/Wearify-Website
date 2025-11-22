@@ -1,21 +1,24 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['user_id'] = 1; // Hardcoded user 1 for session
+}
 // Include the database connection
-include(__DIR__ . "/db.php");
+include(__DIR__ . "/config/db_connect.php");
 
 // TEMP: fetch user with ID = 1
-// (Later you can replace this with your session login system)
 $fullname = "User"; // default value
 
-if (isset($conn)) { // check if DB connection exists
-    $sql = "SELECT fullname FROM users WHERE id = 1";
-    $result = $conn->query($sql);
+try {
+    $stmt = $pdo->prepare("SELECT fullname FROM users WHERE id = 1");
+    $stmt->execute();
+    $row = $stmt->fetch();
 
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
+    if ($row) {
         $fullname = $row['fullname'];
     }
-} else {
-    die("Database connection failed. Please check db.php.");
+} catch (PDOException $e) {
+    die("Database query failed: " . $e->getMessage());
 }
 ?>
 <!DOCTYPE html>
@@ -53,7 +56,6 @@ if (isset($conn)) { // check if DB connection exists
     <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
     <div id="recwhite"></div>
 
-    <!-- All your item groups (upper, lower, shoes...) remain unchanged -->
     <div id="group-upper" class="tooltip-trigger" style="left:182px; top:130px; width:130px; height:140px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_upper">
         <div id="bg-upper"></div>
@@ -167,6 +169,13 @@ if (isset($conn)) { // check if DB connection exists
             <div class="home-clothes-container" id="home-socks-items">
                 <p class="home-empty">No items yet. Please add some items!</p>
             </div>
+        </div>
+    </div>
+
+    <div id="uploadedPhotosContainer" style="position: absolute; right: 20px; top: 320px; width: 260px; border: 1px solid #ccc; padding: 10px; background: #f5f0e6; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow-y: auto; max-height: 60vh; margin-left: auto; margin-right: auto; padding-left: 5px;">
+        <!-- Removed the heading "Your Uploaded Photos" as requested -->
+        <div id="uploadedPhotosList" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            <!-- User photos will be displayed here -->
         </div>
     </div>
 

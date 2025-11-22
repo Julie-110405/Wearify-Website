@@ -155,4 +155,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadClosetItemsForHome();
+
+    // New function to load photos for right side container without remove buttons
+    async function loadUploadedPhotosRightSide() {
+        try {
+            const response = await fetch(HOME_API_ENDPOINT);
+            const payload = await response.json();
+
+            if (payload.success && Array.isArray(payload.data)) {
+                const container = document.getElementById('uploadedPhotosList');
+                if (!container) return;
+
+                container.innerHTML = '';
+
+                payload.data.forEach(item => {
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.style.display = 'inline-block';
+                    imageWrapper.style.margin = '10px';
+                    imageWrapper.style.border = '1px solid #ccc';
+                    imageWrapper.style.padding = '15px';
+                    imageWrapper.style.width = '240px';
+                    imageWrapper.style.height = '240px';
+                    imageWrapper.style.boxSizing = 'border-box';
+                    imageWrapper.style.verticalAlign = 'top';
+
+                    const img = document.createElement('img');
+                    img.src = item.image_url;
+                    img.alt = item.category + ' item';
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    img.style.imageRendering = 'crisp-edges';
+
+                    imageWrapper.appendChild(img);
+                    container.appendChild(imageWrapper);
+                });
+            } else {
+                console.error('Failed to load uploaded photos for right side:', payload.message);
+            }
+        } catch (error) {
+            console.error('Error loading uploaded photos for right side:', error);
+        }
+    }
+
+    loadUploadedPhotosRightSide();
 });
