@@ -79,7 +79,7 @@ body {
 
 .logo {
     position: absolute;
-    left: 1050px;
+    left: 1110x;
     right: 20px;
     top: 8px;
     width: 150px;
@@ -111,7 +111,7 @@ body {
 
 .edit-text {
     position: absolute; 
-    left: 800px; 
+    left: 1000px; 
     top: 85px; 
     font-family: 'Canva Sans', sans-serif; 
     font-size: 24px; 
@@ -126,7 +126,7 @@ body {
     background-color: var(--color-text); 
     z-index: 100;
     top: 115px; 
-    left: 800px; 
+    left: 1000px; 
     transform: translateX(calc(25px - 25px)); 
 }
 
@@ -137,8 +137,6 @@ body {
     overflow-y: auto; 
     
     padding-bottom: 50px;
-    margin: 0 auto;
-    max-width: var(--content-max-width); 
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -269,7 +267,6 @@ body {
     text-align: center;
 }
 
-/* --- NO ITEMS TEXT: Using Fixed Positioning Reference --- */
 .clothes-container h2 {
     position: static;
     margin: 0;
@@ -407,3 +404,21 @@ body {
 .item-grid, .add_icon {
     display: none; 
 }
+
+/* For fade-out and fade-in effect */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 0; /* start invisible */
+    animation: fadeInAnimation 0.5s forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+    }
+}
+

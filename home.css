@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -6,16 +5,15 @@ body {
   width: 100vw;
   background-color: #f0f0f0;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
-
 
 #square1 {
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 2000px;
-  height: 2000px;
+  width: 100vw;
+  height: 300px;
   background-color: #a1876c;
 }
 
@@ -23,7 +21,7 @@ body {
   position: fixed;
   top: 70px;
   left: 0px;
-  width: 2000px;
+  width: 100vw;
   height: 60px;
   background-color: #eae0d6;
 }
@@ -32,17 +30,17 @@ body {
   position: fixed;
   top: 70px;
   left: 0px;
-  width: 700px;
-  height: 520px;
+  width: 51vw;
+  height: calc(100vh - 70px);
   background-color: #eae0d6;
 }
 
 #scrollContainer {
     position: fixed; 
     top: 130px; 
-    left: 500px; 
-    width: 730px;
-    height: 800px;
+    left: 41vw; 
+    width: 60vw;
+    height: calc(100vh - 130px - 10px);
     overflow-y: auto;
     background-color: #ffffff; 
 }
@@ -55,7 +53,7 @@ body {
 
 .rounded-upper {
     position: fixed;
-    left: 530px; 
+    left: 45.5vw; 
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -80,7 +78,7 @@ body {
 
 .rounded-lower {
     position: fixed;
-    left: 660px; 
+    left: 55.0vw;
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -105,10 +103,10 @@ body {
 
 .rounded-shoes {
     position: fixed;
-    left: 790px; 
+    left: 64.5vw; 
     top: 150px; 
     width: 110px; 
-    height: 20px;   
+    height: 20px; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -130,7 +128,7 @@ body {
 
 .rounded-eyewear {
     position: fixed;
-    left: 920px; 
+    left: 74.0vw; 
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -155,8 +153,8 @@ body {
 
 .rounded-bag {
     position: fixed;
-    left: 1050px; 
-    top: 150px; 
+    left: 45.5vw; 
+    top: 195px; 
     width: 110px; 
     height: 20px; 
     display: flex; 
@@ -180,7 +178,7 @@ body {
 
 .rounded-headwear {
     position: fixed;
-    left: 530px; 
+    left: 55.0vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -205,7 +203,7 @@ body {
 
 .rounded-accessory {
     position:fixed;
-    left: 660px; 
+    left: 64.5vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -230,7 +228,7 @@ body {
 
 .rounded-socks {
     position: fixed;
-    left: 790px; 
+    left: 74.0vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -253,20 +251,38 @@ body {
     background-color: #a1876c; 
 }
 
+#home-link-group{
+    position: fixed;
+    left: 400px;
+    top: 85px;
+    width: 80px;
+    height: 33px;
+    z-index: 10;
+}
  .home-text {
     position: absolute; 
-    left: 400px; 
-    top: 85px; 
+    left: 0; 
+    top: 0; 
     font-family: 'Canva Sans', sans-serif; 
     font-size: 24px; 
     font-weight: bold; 
     cursor: move; 
 }
+.line {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    height: 3px; 
+    width: 70px;
+    background-color: #000; 
+    transform: rotate(0deg); 
+    cursor: pointer; 
+}
 
  .edit-text {
     position: absolute; 
-    left: 800px; 
-    top: 85px; 
+    left: 65vw; 
+    top: 75px; 
     font-family: 'Canva Sans', sans-serif; 
     font-size: 24px; 
     font-weight: bold; 
@@ -286,7 +302,7 @@ body {
 .default_profile {
     position: absolute;
     left: 30px; 
-    top: 8px;
+    top: 0px;
     width: 60px;
     height: auto;
     cursor: pointer;
@@ -294,23 +310,14 @@ body {
 
 .logo {
     position: absolute;
-    left: 1050px;
-    top: 8px;
+    right: 2vw;
+    top: 0px;
     width: 150px;
     height: auto;
     cursor: pointer; 
 }
 
-.line {
-    position: absolute;
-    left: 395px;
-    top: 115px;
-    height: 3px; 
-    width: 80px;
-    background-color: #000; 
-    transform: rotate(0deg); 
-    cursor: pointer; 
-}
+
 
 #clothes {
   position: relative;
@@ -334,9 +341,9 @@ body {
 
 #recwhite {
     position: fixed; 
-    left: 500px; 
+    left: 41vw; 
     top: 130px;   
-    width: 710px;   
+    width: 60vw;   
     height: 110px;   
     cursor: pointer;   
     opacity: 0.95;  
@@ -361,18 +368,6 @@ body {
   background: #f2f2f2;
   z-index: 5;
 }
-
-.tooltip-trigger img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;    
-  height: 100%;  
-  object-fit: contain; 
-  z-index: 5;
-  pointer-events: none;
-}
-
 
 .tooltip-text {
   visibility: hidden;
@@ -410,291 +405,330 @@ body {
   opacity: 1;
 }
 
+#group-upper {
+    position: fixed; 
+    left: 13.32vw; 
+    top: 130px;    
+    width: 130px; 
+    height: 140px; 
+    z-index: 1;
+}
 #bg-upper {
-    position: fixed; 
-    left: 182px; 
-    top: 130px;   
-    width: 130px;   
-    height: 140px;   
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
     cursor: pointer;    
     background-color: #f2f2f2; 
     z-index: 1;     
 }
-
-
-.upper {
-    position: fixed;
-    left: 182px;
-    top: 130px;
-    width: 130px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-
-#bg-lower {
-    position: fixed; 
-    left: 182px; 
-    top: 280px;   
-    width: 130px;   
-    height: 140px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.lower {
-    position: fixed;
-    left: 182px;
-    top: 280px;
-    width: 130px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-shoes {
-    position: fixed; 
-    left: 182px; 
-    top: 430px;   
-    width: 130px;   
-    height: 100px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.shoes {
-    position: absolute;
-    left: 195px;
-    top: 430px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-eyewear {
-    position: fixed; 
-    left: 335px; 
-    top: 160px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.eyewear {
-    position: absolute;
-    left: 345px;
-    top: 155px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-bag {
-    position: fixed; 
-    left: 40px; 
-    top: 280px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.bag {
-    position: absolute;
-    left: 55px;
-    top: 280px;
-    width: 85px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-headwear {
-    position: fixed; 
-    left: 40px; 
-    top: 160px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.headwear {
-    position: absolute;
-    left: 45px;
-    top: 155px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 1; 
-}
-
-#bg-accessory1 {
-    position: fixed; 
-    left: 335px; 
-    top: 280px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.accessory1 {
-    position: absolute;
-    left: 350px;
-    top: 280px;
-    width: 85px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-accessory2 {
-    position: fixed; 
-    left: 335px; 
-    top: 400px;   
-    width: 120px;   
-    height: 90px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.accessory2 {
-    position: absolute;
-    left: 340px;
-    top: 395px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
-#bg-socks {
-    position: fixed; 
-    left: 50px; 
-    top: 400px;   
-    width: 100px;   
-    height: 120px;   
-    cursor: pointer;    
-    background-color: #f2f2f2; 
-    z-index: 1;     
-}
-
-.socks {
-    position: absolute;
-    left: 50px;
-    top: 410px;
-    width: 100px;
-    height: auto;
-    cursor: pointer; 
-    z-index: 2; 
-}
-
 .remove_upper {
-    position: fixed;
-    left: 285px;
-    top: 128px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 99999;
 }
 
+#group-lower {
+    position: fixed; 
+    left: 13.32vw; 
+    top: 280px;    
+    width: 130px; 
+    height: 140px; 
+    z-index: 1;
+}
+#bg-lower {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_lower {
-    position: fixed;
-    left: 285px;
-    top: 278px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 99999;
 }
 
+#group-shoes {
+    position: fixed; 
+    left: 13.32vw; 
+    top: 430px;    
+    width: 130px; 
+    height: 100px; 
+    z-index: 1;
+}
+#bg-shoes {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_shoes {
-    position: fixed;
-    left: 285px;
-    top: 428px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
-    z-index: 99999;
+    z-index: 9999999;
 }
 
+#group-eyewear {
+    position: fixed; 
+    left: 30.52vw; 
+    top: 160px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-eyewear {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_eyewear {
-    position: fixed;
-    left: 428px;
-    top: 158px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 99999;
 }
 
+
+
+#group-bag {
+    position: fixed; 
+    left: 2.93vw; 
+    top: 280px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-bag {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_bag {
-    position: fixed;
-    left: 132px;
-    top: 278px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 999999;
 }
 
+
+
+#group-headwear {
+    position: fixed; 
+    left: 2.93vw; 
+    top: 160px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-headwear {
+    position: absolute; 
+    left: 0;
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_headwear {
-    position: fixed;
-    left: 132px;
-    top: 158px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 99999;
 }
 
+
+
+#group-accessory1 {
+    position: fixed; 
+    left: 24.52vw; 
+    top: 280px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-accessory1 {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_accessory1 {
-    position: fixed;
-    left: 428px;
-    top: 278px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 999999;
 }
 
+
+
+#group-accessory2 {
+    position: fixed; 
+    left: 24.52vw; 
+    top: 400px;    
+    width: 120px; 
+    height: 90px; 
+    z-index: 1;
+}
+#bg-accessory2 {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+    z-index: 1;     
+}
 .remove_accessory2 {
-    position: fixed;
-    left: 428px;
-    top: 398px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
-    z-index: 99999;
+    z-index: 9999999;
 }
 
+
+
+#group-socks {
+    position: fixed; 
+    left: 3.66vw; 
+    top: 400px;    
+    width: 100px; 
+    height: 120px; 
+    z-index: 1;
+}
+#bg-socks {
+    position: absolute; 
+    left: 0; 
+    top: 0;   
+    width: 100%;   
+    height: 100%;   
+    cursor: pointer;    
+    background-color: #f2f2f2; 
+#bg-upper,
+#bg-lower,
+#bg-shoes,
+#bg-eyewear,
+#bg-bag,
+#bg-headwear,
+#bg-accessory1,
+#bg-accessory2,
+#bg-socks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.home-clothes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto 40px;
+    justify-content: flex-start;
+}
+
+.home-item-card {
+    width: 170px;
+    height: 220px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.home-item-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.home-empty {
+    font-size: 1rem;
+    color: #a1876c;
+    font-family: 'Canva Sans', sans-serif;
+    width: 100%;
+}
+    z-index: 1;     
+}
 .remove_socks {
-    position: fixed;
-    left: 122px;
-    top: 398px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
     width: 30px;
     height: auto;
     cursor: pointer; 
     z-index: 999999;
 }
+
+
+
+
+
+
+
 
 .slide {
     width: 100%;
     height: auto;
-    min-height: 700px; 
+    min-height: 700px;
     display: none;
     background: white;
     padding-top: 20px;
@@ -708,9 +742,10 @@ body {
 
 
 #slide-lower h2 {
-    position: relative;   
-    top: -920px;          
-    left: 150px;;              
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
     font-size: 24px;
     color: #a1876c;
     font-family: 'Canva Sans', sans-serif;
@@ -729,7 +764,7 @@ body {
     cursor: pointer;
 }
 
-#slide-shoes clothes {
+#slide-shoes .clothes {
   position: relative;
   top: -1000px;
   left: 20px;
@@ -739,7 +774,7 @@ body {
   background-color: #eeeeee;
 }
 
-#slide-shoes add_icon {
+#slide-shoes .add_icon {
     position: relative;
     left: 165px;
     top: -1255px;
@@ -750,7 +785,7 @@ body {
 }
 
 
-#slide-bag clothes {
+#slide-bag .clothes {
   position: relative;
   top: -1000px;
   left: 20px;
@@ -771,7 +806,7 @@ body {
     cursor: pointer;
 }
 
-#slide-bag add_icon {
+#slide-bag .add_icon {
     position: relative;
     left: 165px;
     top: -1255px;
@@ -781,7 +816,7 @@ body {
     z-index: 1;
 }
 
-#slide-accessory clothes {
+#slide-accessory .clothes {
   position: relative;
   top: -1000px;
   left: 20px;
@@ -791,7 +826,7 @@ body {
   background-color: #eeeeee;
 }
 
-#slide-accessory add_icon {
+#slide-accessory .add_icon {
     position: relative;
     left: 165px;
     top: -1255px;
@@ -810,4 +845,21 @@ body {
     font-family: 'Canva Sans', sans-serif;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* For fade-out and fade-in effect */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 0; /* start invisible */
+    animation: fadeInAnimation 0.5s forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+    }
 }

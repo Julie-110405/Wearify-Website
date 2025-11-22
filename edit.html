@@ -12,7 +12,6 @@
     
     <div id="square1"></div>
     <div id="square2"></div> 
-    
     <div class="name-text">Mia's Closet</div>
     <img src="default_profile.png" alt="Profile" class="default_profile">
     <img src="logo.png" alt="Wearify" class="logo">
@@ -58,9 +57,7 @@
                     <p class="small-note">image with no background is preferable</p>
                 </div>
             </div>
-            <div class="clothes-container" id="clothes-lower">
-                <h2>No items yet. Please add some items!</h2>
-            </div>
+            <div class="clothes-container" id="clothes-lower"></div>
         </div>
 
         <div class="slide" id="slide-shoes">
@@ -82,9 +79,7 @@
                     <p class="small-note">image with no background is preferable</p>
                 </div>
             </div>
-            <div class="clothes-container" id="clothes-eyewear">
-                 <h2>No items yet. Please add some items!</h2>
-            </div>
+            <div class="clothes-container" id="clothes-eyewear"></div>
         </div>
 
         <div class="slide" id="slide-bag">
@@ -106,9 +101,7 @@
                     <p class="small-note">image with no background is preferable</p>
                 </div>
             </div>
-            <div class="clothes-container" id="clothes-headwear">
-                 <h2>No items yet. Please add some items!</h2>
-            </div>
+            <div class="clothes-container" id="clothes-headwear"></div>
         </div>
 
         <div class="slide" id="slide-accessory">
@@ -130,9 +123,7 @@
                     <p class="small-note">image with no background is preferable</p>
                 </div>
             </div>
-            <div class="clothes-container" id="clothes-socks">
-                 <h2>No items yet. Please add some items!</h2>
-            </div>
+            <div class="clothes-container" id="clothes-socks"></div>
         </div>
         
     </div>
@@ -149,8 +140,32 @@
     </div>
 </div>
 
-    
     <script src="edit.js"></script>
-    
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const homeBtn = document.querySelector(".home-text");
+        if (homeBtn) {
+            homeBtn.style.cursor = "pointer"; // optional, makes it look clickable
+            homeBtn.onclick = () => {
+                window.location.href = "home.html";
+            };
+        }
+    });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const homeBtn = document.querySelector(".home-text");
+    if (homeBtn) {
+        homeBtn.style.cursor = "pointer";
+        homeBtn.onclick = () => {
+            document.body.classList.add("fade-out"); // fade out
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 500);
+        };
+    }
+});
+</script>
+
 </body>
 </html>
