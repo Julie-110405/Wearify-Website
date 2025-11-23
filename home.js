@@ -168,28 +168,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 container.innerHTML = '';
 
-                payload.data.forEach(item => {
-                    const imageWrapper = document.createElement('div');
-                    imageWrapper.style.display = 'inline-block';
-                    imageWrapper.style.margin = '10px';
-                    imageWrapper.style.border = '1px solid #ccc';
-                    imageWrapper.style.padding = '15px';
-                    imageWrapper.style.width = '240px';
-                    imageWrapper.style.height = '240px';
-                    imageWrapper.style.boxSizing = 'border-box';
-                    imageWrapper.style.verticalAlign = 'top';
+            payload.data.slice().reverse().forEach(item => {
+                const imageWrapper = document.createElement('div');
+                imageWrapper.style.display = 'inline-block';
+                imageWrapper.style.margin = '10px';
+                imageWrapper.style.border = '1px solid #ccc';
+                imageWrapper.style.padding = '15px';
+                imageWrapper.style.width = '240px';
+                imageWrapper.style.height = '240px';
+                imageWrapper.style.boxSizing = 'border-box';
+                imageWrapper.style.verticalAlign = 'top';
 
-                    const img = document.createElement('img');
-                    img.src = item.image_url;
-                    img.alt = item.category + ' item';
-                    img.style.width = '100%';
-                    img.style.height = '100%';
-                    img.style.objectFit = 'cover';
-                    img.style.imageRendering = 'crisp-edges';
+                const img = document.createElement('img');
+                img.src = item.image_url;
+                img.alt = item.category + ' item';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.imageRendering = 'crisp-edges';
 
-                    imageWrapper.appendChild(img);
-                    container.appendChild(imageWrapper);
-                });
+                imageWrapper.appendChild(img);
+                container.appendChild(imageWrapper);
+            });
             } else {
                 console.error('Failed to load uploaded photos for right side:', payload.message);
             }

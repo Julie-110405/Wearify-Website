@@ -172,9 +172,9 @@ try {
         </div>
     </div>
 
-    <div id="uploadedPhotosContainer" style="position: absolute; right: 20px; top: 320px; width: 260px; border: 1px solid #ccc; padding: 10px; background: #f5f0e6; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow-y: auto; max-height: 60vh; margin-left: auto; margin-right: auto; padding-left: 5px;">
+    <div id="uploadedPhotosContainer" style="position: absolute; right: 140px; top: 320px; width: auto; border: 1px solid #ccc; padding: 10px; background: #f5f0e6; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow-y: auto; max-height: 60vh; margin-left: auto; margin-right: auto; padding-left: 5px;">
         <!-- Removed the heading "Your Uploaded Photos" as requested -->
-        <div id="uploadedPhotosList" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        <div id="uploadedPhotosList" style="display: flex; flex-direction: row; gap: 15px; align-items: center;">
             <!-- User photos will be displayed here -->
         </div>
     </div>
@@ -204,7 +204,7 @@ try {
             editBtn.onclick = () => {
                 document.body.classList.add("fade-out");
                 setTimeout(() => {
-                    window.location.href = "edit.html";
+                    window.location.href = "edit.php";
                 }, 500);
             };
         }

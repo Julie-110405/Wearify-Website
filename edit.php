@@ -1,3 +1,7 @@
+<?php
+// You can add PHP logic here later (session, database, etc.)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +131,8 @@
         </div>
         
     </div>
-    <!-- DELETE CONFIRMATION MODAL -->
+
+<!-- DELETE CONFIRMATION MODAL -->
 <div id="deleteModal" class="modal-overlay">
     <div class="modal-box">
         <h3>Delete Item?</h3>
@@ -140,25 +145,27 @@
     </div>
 </div>
 
-    <script src="edit.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const homeBtn = document.querySelector(".home-text");
-        if (homeBtn) {
-            homeBtn.style.cursor = "pointer"; // optional, makes it look clickable
-            homeBtn.onclick = () => {
-                window.location.href = "home.html";
-            };
-        }
-    });
-</script>
+<script src="edit.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const homeBtn = document.querySelector(".home-text");
     if (homeBtn) {
         homeBtn.style.cursor = "pointer";
         homeBtn.onclick = () => {
-            document.body.classList.add("fade-out"); // fade out
+            window.location.href = "home.html";
+        };
+    }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const homeBtn = document.querySelector(".home-text");
+    if (homeBtn) {
+        homeBtn.style.cursor = "pointer";
+        homeBtn.onclick = () => {
+            document.body.classList.add("fade-out");
             setTimeout(() => {
                 window.location.href = "home.php";
             }, 500);

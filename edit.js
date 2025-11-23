@@ -86,6 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error(`Container for category ${category} not found`);
             return;
         }
+        
+        // Count images currently in container to set order
+        const currentItems = container.querySelectorAll(".image-wrapper");
+        const orderIndex = currentItems.length;
 
         // Hide "no items yet" message if present
         const noItems = container.querySelector('h2');
@@ -96,15 +100,19 @@ document.addEventListener("DOMContentLoaded", function() {
         // Create a wrapper div for the image as a frame
         const imageWrapper = document.createElement("div");
         imageWrapper.className = "image-wrapper";
-        imageWrapper.style.display = "inline-block";
-        imageWrapper.style.margin = "10px"; // Small distance between images
+        // Removed inline-block to prevent layout issues with flex container
+        // imageWrapper.style.display = "inline-block";
+        // Add margin to control spacing explicitly
+        imageWrapper.style.margin = "0"; // reset margin
         imageWrapper.style.position = "relative"; // For positioning the remove button
-        imageWrapper.style.border = "1px solid #ccc"; // Gray outline frame
-        imageWrapper.style.padding = "15px"; // Padding inside the frame (5px * 3)
-        imageWrapper.style.width = "240px"; // Fixed frame width (80px * 3)
-        imageWrapper.style.height = "240px"; // Fixed frame height (80px * 3)
+        imageWrapper.style.border = "1px solid #ddd"; // Gray outline frame similar to home
+        imageWrapper.style.padding = "10px"; // Padding inside the frame similar to home
+        imageWrapper.style.width = "170px"; // Width like .home-item-card
+        imageWrapper.style.height = "220px"; // Height like .home-item-card
+        imageWrapper.style.borderRadius = "8px"; // Border radius like home cards
         imageWrapper.style.boxSizing = "border-box"; // Include padding and border in size
         imageWrapper.style.verticalAlign = "top"; // Align frames to top to prevent vertical overlap
+        imageWrapper.style.order = orderIndex; // Explicitly set flex order to insertion index
         imageWrapper.setAttribute('data-item-id', itemId);
 
         // Create the image element to fit inside the frame
@@ -112,9 +120,9 @@ document.addEventListener("DOMContentLoaded", function() {
         img.src = imageUrl;
         img.alt = fileName || "Uploaded image";
         img.className = "uploaded-image";
-        img.style.width = "100%"; // Fill the frame
-        img.style.height = "100%"; // Fill the frame
-        img.style.objectFit = "cover"; // Cover the frame without distortion
+        img.style.maxWidth = "100%"; // Max width like home-item-card img
+        img.style.maxHeight = "100%"; // Max height like home-item-card img
+        img.style.objectFit = "contain"; // Object fit contain like home
         img.style.imageRendering = "crisp-edges"; // Reduce blurring
 
         // Create the remove button
