@@ -1,0 +1,89 @@
+<?php
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="edit_account_style.css"> 
+    <link rel="stylesheet" href="edit_username_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="account-sidebar-panel">
+        <h1 class="page-title">Account</h1>
+
+        <div class="profile-section">
+            <div class="profile-photo-wrapper">
+                <img src="default_profile.png" alt="Profile Picture" class="profile-photo">
+                <span class="camera-icon">📷</span>
+            </div>
+            
+            <div class="profile-name-edit">
+                <input type="text" value="Mia" class="user-name-input">
+                <span class="edit-icon">✎</span>
+            </div>
+        </div>
+        
+        <div class="account-links">
+            
+            <a href="edit_username.php" class="account-link">
+                <span>miaflor123xxx</span>
+                <span class="dropdown-arrow">▼</span>
+            </a>
+            
+            <div id="password-area">
+                <div id="password-toggle" class="account-link" tabindex="0">
+                    <span>Change password</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                
+                <div id="password-inputs" class="edit-username-inputs">
+                    <input type="password" placeholder="Current password" class="rounded-input">
+                    <input type="password" placeholder="New password" class="rounded-input">
+                    <input type="password" placeholder="Confirm new password" class="rounded-input">
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="control-buttons">
+            <a href="account.php" class="back-button">Back</a>
+            <button class="save-button">Save</button>
+        </div>
+    
+    </div>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarPanel = document.querySelector('.account-sidebar-panel');
+            const passwordToggle = document.getElementById('password-toggle');
+            const passwordInputs = document.getElementById('password-inputs');
+
+            if (passwordToggle && passwordInputs && sidebarPanel) {
+                
+                sidebarPanel.classList.add('expanded');
+                
+                passwordToggle.addEventListener('click', () => {
+                   
+                    passwordInputs.classList.toggle('hidden');
+                    sidebarPanel.classList.toggle('expanded');
+                });
+                
+               
+                passwordToggle.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        passwordInputs.classList.toggle('hidden');
+                        sidebarPanel.classList.toggle('expanded');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
