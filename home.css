@@ -682,22 +682,24 @@ body {
 }
 
 .home-item-card {
-    width: 170px;
+    width: 220px;
     height: 220px;
-    border: 1px solid #ddd;
+    /* Removed border as per user feedback to eliminate container outline */
+    border: none;
     border-radius: 8px;
     background: #ffffff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    /* Added white box-shadow as per user's request */
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
 }
-
 .home-item-card img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    outline: 2px solid #a1876c; /* Added outline to individual photos */
 }
 
 .home-empty {
