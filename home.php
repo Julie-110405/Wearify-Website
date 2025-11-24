@@ -173,9 +173,9 @@ try {
     </div>
 
     <div id="uploadedPhotosContainer" style="position: absolute; right: 50px; left: 750px; top: 250px; width: auto; border: 1px solid #ccc; padding: 10px; background: #ffffff; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow-y: auto; max-height: 60vh; margin-left: auto; margin-right: auto; padding-left: 5px;">
-        <div id="uploadedPhotosList" style="display: flex; flex-direction: row; gap: 15px; align-items: center;">
+<div id="uploadedPhotosList" style="display: flex; flex-direction: row; gap: 15px; align-items: center; flex-wrap: wrap;">
             
-        </div>
+</div>
     </div>
 
     <script src="home.js"></script>

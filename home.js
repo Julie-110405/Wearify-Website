@@ -174,27 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             payload.data.slice().reverse().forEach(item => {
                 const imageWrapper = document.createElement('div');
-                imageWrapper.style.display = 'inline-block';
-                imageWrapper.style.margin = '10px';
-                imageWrapper.style.position = 'relative';
-                imageWrapper.style.width = '240px';
-                imageWrapper.style.height = '240px';
-                imageWrapper.style.boxSizing = 'border-box';
-                imageWrapper.style.verticalAlign = 'top';
-                imageWrapper.style.border = 'none';
-                imageWrapper.style.boxShadow = 'none';
-                imageWrapper.style.padding = '0'; // remove padding
+                imageWrapper.classList.add('uploaded-photo-item');
 
                 const img = document.createElement('img');
                 img.src = item.image_url;
                 img.alt = item.category + ' item';
-                img.style.width = '100%';
-                img.style.height = '100%';
-                img.style.objectFit = 'cover';
-                img.style.border = '2px solid #ffffff';  // add border here
-                img.style.borderRadius = '4px';
-                img.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)'; // subtle shadow
-                img.style.imageRendering = 'crisp-edges';
 
                 imageWrapper.appendChild(img);
                 container.appendChild(imageWrapper);
