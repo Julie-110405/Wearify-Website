@@ -127,12 +127,14 @@ function createHomeCard(item) {
     imageWrapper.style.display = "inline-block";
     imageWrapper.style.margin = "10px";
     imageWrapper.style.position = "relative";
-    imageWrapper.style.border = "1px solid #ccc";
-    imageWrapper.style.padding = "15px";
+    imageWrapper.style.padding = "0";
     imageWrapper.style.width = "240px";
     imageWrapper.style.height = "240px";
     imageWrapper.style.boxSizing = "border-box";
     imageWrapper.style.verticalAlign = "top";
+
+    imageWrapper.style.border = "none";
+    imageWrapper.style.boxShadow = "none";
 
     const img = document.createElement("img");
     img.src = item.image_url;
@@ -140,7 +142,10 @@ function createHomeCard(item) {
     img.style.width = "100%";
     img.style.height = "100%";
     img.style.objectFit = "cover";
-    img.style.imageRendering = "crisp-edges";
+
+    img.style.border = "2px solid #ffffff"; 
+    img.style.borderRadius = "4px"; 
+    img.style.boxShadow = "0 2px 4px rgba(0,0,0,0.2)"; 
 
     imageWrapper.appendChild(img);
     return imageWrapper;
@@ -156,28 +161,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadClosetItemsForHome();
 
-    // New function to load photos for right side container without remove buttons
     async function loadUploadedPhotosRightSide() {
-        try {
-            const response = await fetch(HOME_API_ENDPOINT);
-            const payload = await response.json();
+    try {
+        const response = await fetch(HOME_API_ENDPOINT);
+        const payload = await response.json();
 
-            if (payload.success && Array.isArray(payload.data)) {
-                const container = document.getElementById('uploadedPhotosList');
-                if (!container) return;
+        if (payload.success && Array.isArray(payload.data)) {
+            const container = document.getElementById('uploadedPhotosList');
+            if (!container) return;
 
-                container.innerHTML = '';
+            container.innerHTML = '';
 
             payload.data.slice().reverse().forEach(item => {
                 const imageWrapper = document.createElement('div');
                 imageWrapper.style.display = 'inline-block';
                 imageWrapper.style.margin = '10px';
-                imageWrapper.style.border = '1px solid #ccc';
-                imageWrapper.style.padding = '15px';
+                imageWrapper.style.position = 'relative';
                 imageWrapper.style.width = '240px';
                 imageWrapper.style.height = '240px';
                 imageWrapper.style.boxSizing = 'border-box';
                 imageWrapper.style.verticalAlign = 'top';
+                imageWrapper.style.border = 'none';
+                imageWrapper.style.boxShadow = 'none';
+                imageWrapper.style.padding = '0'; // remove padding
 
                 const img = document.createElement('img');
                 img.src = item.image_url;
@@ -185,18 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.style.width = '100%';
                 img.style.height = '100%';
                 img.style.objectFit = 'cover';
+                img.style.border = '2px solid #ffffff';  // add border here
+                img.style.borderRadius = '4px';
+                img.style.boxShadow = '0 2px 4px rgba(0,0,0,0.2)'; // subtle shadow
                 img.style.imageRendering = 'crisp-edges';
 
                 imageWrapper.appendChild(img);
                 container.appendChild(imageWrapper);
             });
-            } else {
-                console.error('Failed to load uploaded photos for right side:', payload.message);
-            }
-        } catch (error) {
-            console.error('Error loading uploaded photos for right side:', error);
+        } else {
+            console.error('Failed to load uploaded photos for right side:', payload.message);
         }
+    } catch (error) {
+        console.error('Error loading uploaded photos for right side:', error);
     }
+}
 
     loadUploadedPhotosRightSide();
 });

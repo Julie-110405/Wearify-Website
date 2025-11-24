@@ -847,7 +847,13 @@ body {
     cursor: pointer;
 }
 
-/* For fade-out and fade-in effect */
+#uploadedPhotosList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 760px;   /* enough for 3 images */
+}
+
 .fade-out {
     opacity: 0;
     transition: opacity 0.5s ease;
