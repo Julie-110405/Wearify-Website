@@ -116,6 +116,15 @@ try {
         </div>
     </div>
 
+    <!-- Selection Modal -->
+    <div id="selectionModal" class="modal">
+        <div class="modal-content">
+            <h3>Select Item</h3>
+            <div id="selectionItems"></div>
+            <button id="closeSelection">Close</button>
+        </div>
+    </div>
+
     <div id="scrollContainer">
         <div id="square4"></div>
 

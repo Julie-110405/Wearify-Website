@@ -11,6 +11,9 @@ const HOME_CATEGORY_CONFIG = {
     socks: { containerId: 'home-socks-items', empty: 'No socks yet. Please add some items!', slotIds: ['bg-socks'] }
 };
 
+// Store selected items for each slot
+let selectedItems = {};
+
 const slides = {
     'rounded-upper': 'slide-upper',
     'rounded-lower': 'slide-lower',
@@ -121,6 +124,7 @@ async function loadClosetItemsForHome() {
         }
 
         const grouped = groupItemsByCategory(payload.data);
+        window.groupedItems = grouped; // Store globally for selection modal
         Object.keys(HOME_CATEGORY_CONFIG).forEach(category => {
             const items = grouped[category] || [];
             renderHomeCategory(category, items);
@@ -180,6 +184,7 @@ function createHomeCard(item) {
 
     imageWrapper.style.border = "none";
     imageWrapper.style.boxShadow = "none";
+    imageWrapper.style.cursor = "pointer";
 
     const img = document.createElement("img");
     img.src = item.image_url;
@@ -188,12 +193,124 @@ function createHomeCard(item) {
     img.style.height = "100%";
     img.style.objectFit = "cover";
 
-    img.style.border = "2px solid #ffffff"; 
-    img.style.borderRadius = "4px"; 
+    img.style.border = "2px solid #ffffff";
+    img.style.borderRadius = "4px";
     img.style.boxShadow = "0 2px 4px rgba(0,0,0,0.2)";
+
+    // Add click event to assign to square
+    imageWrapper.addEventListener('click', () => assignItemToSquare(item));
 
     imageWrapper.appendChild(img);
     return imageWrapper;
+}
+
+// Function to open selection modal for a group
+function openSelectionModal(groupId) {
+    const category = getCategoryFromGroupId(groupId);
+    if (!category) return;
+
+    // Get items for this category
+    const items = getItemsForCategory(category);
+    if (!items.length) {
+        alert(`No items available in ${category} category. Please add some items in Edit mode.`);
+        return;
+    }
+
+    const selectionItems = document.getElementById('selectionItems');
+    selectionItems.innerHTML = '';
+
+    items.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.style.display = 'inline-block';
+        itemDiv.style.margin = '10px';
+        itemDiv.style.cursor = 'pointer';
+        itemDiv.style.border = '2px solid #ddd';
+        itemDiv.style.borderRadius = '4px';
+
+        const img = document.createElement('img');
+        img.src = item.image_url;
+        img.alt = `${item.category} item`;
+        img.style.width = '100px';
+        img.style.height = '100px';
+        img.style.objectFit = 'cover';
+
+        itemDiv.appendChild(img);
+        itemDiv.addEventListener('click', () => selectItem(groupId, item));
+        selectionItems.appendChild(itemDiv);
+    });
+
+    document.getElementById('selectionModal').style.display = 'flex';
+}
+
+// Function to get category from group ID
+function getCategoryFromGroupId(groupId) {
+    const mapping = {
+        'group-upper': 'upper',
+        'group-lower': 'lower',
+        'group-shoes': 'shoes',
+        'group-eyewear': 'eyewear',
+        'group-bag': 'bag',
+        'group-headwear': 'headwear',
+        'group-accessory1': 'accessory',
+        'group-accessory2': 'accessory',
+        'group-socks': 'socks'
+    };
+    return mapping[groupId];
+}
+
+// Function to get items for a category
+function getItemsForCategory(category) {
+    // This assumes we have the grouped items from loadClosetItemsForHome
+    // We need to store them globally
+    return window.groupedItems ? window.groupedItems[category] || [] : [];
+}
+
+// Function to select an item for a slot
+function selectItem(groupId, item) {
+    selectedItems[groupId] = item;
+    const bgDiv = document.getElementById('bg-' + groupId.split('-')[1]);
+    if (bgDiv) {
+        bgDiv.style.backgroundImage = `url(${item.image_url})`;
+        bgDiv.style.backgroundSize = 'cover';
+        bgDiv.style.backgroundPosition = 'center';
+    }
+    document.getElementById('selectionModal').style.display = 'none';
+}
+
+// Function to assign item to square based on category
+function assignItemToSquare(item) {
+    const category = normalizeCategory(item.category);
+    const config = HOME_CATEGORY_CONFIG[category];
+    if (!config || !config.slotIds.length) return;
+
+    // For accessory, cycle through available slots
+    let slotId;
+    if (category === 'accessory') {
+        // Find the first empty slot or the first one
+        slotId = config.slotIds.find(id => !document.getElementById(id).style.backgroundImage) || config.slotIds[0];
+    } else {
+        slotId = config.slotIds[0];
+    }
+
+    const bgDiv = document.getElementById(slotId);
+    if (bgDiv) {
+        bgDiv.style.backgroundImage = `url(${item.image_url})`;
+        bgDiv.style.backgroundSize = 'cover';
+        bgDiv.style.backgroundPosition = 'center';
+        // Store the selected item
+        const groupId = 'group-' + slotId.split('-')[1];
+        selectedItems[groupId] = item;
+    }
+}
+
+// Function to remove item from slot
+function removeItemFromSlot(category) {
+    const groupId = 'group-' + category;
+    delete selectedItems[groupId];
+    const bgDiv = document.getElementById('bg-' + category);
+    if (bgDiv) {
+        bgDiv.style.backgroundImage = '';
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -205,4 +322,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadClosetItemsForHome();
+
+    // Add event listeners for group divs
+    const groupIds = ['group-upper', 'group-lower', 'group-shoes', 'group-eyewear', 'group-bag', 'group-headwear', 'group-accessory1', 'group-accessory2', 'group-socks'];
+    groupIds.forEach(groupId => {
+        const groupDiv = document.getElementById(groupId);
+        if (groupDiv) {
+            groupDiv.addEventListener('click', () => openSelectionModal(groupId));
+        }
+    });
+
+    // Add event listeners for remove icons
+    const removeClasses = ['remove_upper', 'remove_lower', 'remove_shoes', 'remove_eyewear', 'remove_bag', 'remove_headwear', 'remove_accessory1', 'remove_accessory2', 'remove_socks'];
+    removeClasses.forEach(className => {
+        const removeIcon = document.querySelector('.' + className);
+        if (removeIcon) {
+            removeIcon.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent triggering group click
+                const category = className.split('_')[1];
+                removeItemFromSlot(category);
+            });
+        }
+    });
+
+    // Close selection modal
+    const closeSelection = document.getElementById('closeSelection');
+    if (closeSelection) {
+        closeSelection.addEventListener('click', () => {
+            document.getElementById('selectionModal').style.display = 'none';
+        });
+    }
 });
