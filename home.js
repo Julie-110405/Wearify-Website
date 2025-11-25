@@ -277,6 +277,26 @@ function selectItem(groupId, item) {
     document.getElementById('selectionModal').style.display = 'none';
 }
 
+// Function to switch to category from group click
+function switchToCategoryFromGroup(groupId) {
+    const categoryMapping = {
+        'group-upper': '.rounded-upper',
+        'group-lower': '.rounded-lower',
+        'group-shoes': '.rounded-shoes',
+        'group-eyewear': '.rounded-eyewear',
+        'group-bag': '.rounded-bag',
+        'group-headwear': '.rounded-headwear',
+        'group-accessory1': '.rounded-accessory',
+        'group-accessory2': '.rounded-accessory',
+        'group-socks': '.rounded-socks'
+    };
+
+    const categoryButton = document.querySelector(categoryMapping[groupId]);
+    if (categoryButton) {
+        toggleColor(categoryButton);
+    }
+}
+
 // Function to assign item to square based on category
 function assignItemToSquare(item) {
     const category = normalizeCategory(item.category);
@@ -328,7 +348,12 @@ document.addEventListener('DOMContentLoaded', () => {
     groupIds.forEach(groupId => {
         const groupDiv = document.getElementById(groupId);
         if (groupDiv) {
-            groupDiv.addEventListener('click', () => openSelectionModal(groupId));
+            groupDiv.addEventListener('click', (e) => {
+                // Switch to the corresponding category on the right side
+                switchToCategoryFromGroup(groupId);
+                // Open selection modal
+                openSelectionModal(groupId);
+            });
         }
     });
 
