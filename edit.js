@@ -1,5 +1,35 @@
 const EDIT_API_ENDPOINT = 'http://localhost/Wearify-Website/api/v1/closet.php';
 
+function normalizeCategory(value = '') {
+    let cat = value.toString().trim().toLowerCase();
+
+    // Map common aliases or plural forms to expected keys
+    const categoryMap = {
+        'uppers': 'upper',
+        'upper': 'upper',
+        'lowers': 'lower',
+        'lower': 'lower',
+        'shoe': 'shoes',
+        'shoes': 'shoes',
+        'bags': 'bag',
+        'bag': 'bag',
+        'accessories': 'accessory',
+        'accessory': 'accessory',
+        'sock': 'socks',
+        'socks': 'socks',
+        'headwear': 'headwear',
+        'eyewear': 'eyewear'
+    };
+
+    if (categoryMap[cat]) {
+        cat = categoryMap[cat];
+    } else {
+        console.warn(`WARNING: Unknown category '${value}' normalized as '${cat}'`);
+    }
+
+    return cat;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const fileInput = document.getElementById("fileInput");
     const addItemCards = document.querySelectorAll(".add-item-card");
@@ -164,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (payload.success && Array.isArray(payload.data)) {
                 // Group items by category
                 const grouped = payload.data.reduce((acc, item) => {
-                    const category = item.category.toLowerCase();
+                    const category = normalizeCategory(item.category);
                     if (!acc[category]) acc[category] = [];
                     acc[category].push(item);
                     return acc;

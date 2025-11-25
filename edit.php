@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (homeBtn) {
         homeBtn.style.cursor = "pointer";
         homeBtn.onclick = () => {
-            window.location.href = "home.html";
+            window.location.href = "home.php";
         };
     }
 });

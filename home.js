@@ -28,18 +28,62 @@ const deleteModal = document.getElementById("deleteModal");
 const cancelDelete = document.getElementById("cancelDelete");
 const confirmDelete = document.getElementById("confirmDelete");
 
+// Patch start
 function normalizeCategory(value = '') {
-    return value.toString().trim().toLowerCase();
+    let cat = value.toString().trim().toLowerCase();
+
+    // Map common aliases or plural forms to expected keys
+    const categoryMap = {
+        'uppers': 'upper',
+        'upper': 'upper',
+        'lowers': 'lower',
+        'lower': 'lower',
+        'shoe': 'shoes',
+        'shoes': 'shoes',
+        'bags': 'bag',
+        'bag': 'bag',
+        'accessories': 'accessory',
+        'accessory': 'accessory',
+        'sock': 'socks',
+        'socks': 'socks',
+        'headwear': 'headwear',
+        'eyewear': 'eyewear'
+    };
+
+    if (categoryMap[cat]) {
+        cat = categoryMap[cat];
+    } else {
+        console.warn(`WARNING: Unknown category '${value}' normalized as '${cat}'`);
+    }
+
+    return cat;
+}
+// Patch end
+
+function groupItemsByCategory(items) {
+    const grouped = items.reduce((acc, item) => {
+        const category = normalizeCategory(item.category);
+        if (!acc[category]) {
+            acc[category] = [];
+        }
+        acc[category].push(item);
+        return acc;
+    }, {});
+    console.log("Grouped items:", grouped);
+    return grouped;
 }
 
-function showSlide(className) {
-    document.querySelectorAll('.slide').forEach(slide => {
-        slide.classList.remove('active-slide');
+// Patch start
+function showSlide(category) {
+    Object.values(slides).forEach(slideId => {
+        const slide = document.getElementById(slideId);
+        if (slide) {
+            slide.style.display = 'none';
+        }
     });
-
-    const slideId = slides[className];
-    if (slideId) {
-        document.getElementById(slideId).classList.add('active-slide');
+    const activeSlide = document.getElementById(slides[category]);
+    if (activeSlide) {
+        activeSlide.style.display = 'block';
     }
 }
 
@@ -47,11 +91,22 @@ function toggleColor(element) {
     if (activeElement && activeElement !== element) {
         activeElement.classList.remove('active');
     }
-
+    
     if (activeElement !== element) {
         element.classList.add('active');
         activeElement = element;
-        showSlide(element.classList[0]);
+
+        // Show the corresponding slide based on clicked tab class
+        const classes = Array.from(element.classList);
+        const categoryClass = classes.find(cls => Object.keys(slides).some(cat => cls.includes(cat))); 
+
+        if (categoryClass) {
+            const normalizedCategory = normalizeCategory(categoryClass);
+            if (normalizedCategory) {
+                console.log(`Active category changed to: ${normalizedCategory}`);
+                showSlide(normalizedCategory);
+            }
+        }
     }
 }
 
@@ -59,6 +114,7 @@ async function loadClosetItemsForHome() {
     try {
         const response = await fetch(HOME_API_ENDPOINT);
         const payload = await response.json();
+        console.log("DEBUG: Fetched payload from API in loadClosetItemsForHome:", payload);
 
         if (!payload.success || !Array.isArray(payload.data)) {
             throw new Error('Unexpected response payload');
@@ -73,18 +129,11 @@ async function loadClosetItemsForHome() {
         console.error('Failed to load closet items for home:', error);
         Object.keys(HOME_CATEGORY_CONFIG).forEach(category => renderHomeCategory(category, []));
     }
-}
 
-function groupItemsByCategory(items) {
-    return items.reduce((acc, item) => {
-        const category = normalizeCategory(item.category);
-        if (!acc[category]) acc[category] = [];
-        acc[category].push(item);
-        return acc;
-    }, {});
 }
 
 function renderHomeCategory(category, items) {
+    console.log(`Rendering ${items.length} items in category: ${category}`);
     const config = HOME_CATEGORY_CONFIG[category];
     if (!config) return;
 
@@ -93,16 +142,12 @@ function renderHomeCategory(category, items) {
 
     container.innerHTML = '';
 
-    const sortedItems = items
-        .slice()
-        .sort((a, b) => (Number(b.item_id) || 0) - (Number(a.item_id) || 0));
-
-    if (!sortedItems.length) {
+    if (!items.length) {
         container.innerHTML = `<p class="home-empty">${config.empty}</p>`;
         return;
     }
-
-    sortedItems.forEach(item => container.appendChild(createHomeCard(item)));
+    
+    items.forEach(item => container.appendChild(createHomeCard(item)));
 }
 
 function updatePreviewSlots(slotIds = [], items = []) {
@@ -145,7 +190,7 @@ function createHomeCard(item) {
 
     img.style.border = "2px solid #ffffff"; 
     img.style.borderRadius = "4px"; 
-    img.style.boxShadow = "0 2px 4px rgba(0,0,0,0.2)"; 
+    img.style.boxShadow = "0 2px 4px rgba(0,0,0,0.2)";
 
     imageWrapper.appendChild(img);
     return imageWrapper;
@@ -160,36 +205,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadClosetItemsForHome();
-
-    async function loadUploadedPhotosRightSide() {
-    try {
-        const response = await fetch(HOME_API_ENDPOINT);
-        const payload = await response.json();
-
-        if (payload.success && Array.isArray(payload.data)) {
-            const container = document.getElementById('uploadedPhotosList');
-            if (!container) return;
-
-            container.innerHTML = '';
-
-            payload.data.slice().reverse().forEach(item => {
-                const imageWrapper = document.createElement('div');
-                imageWrapper.classList.add('uploaded-photo-item');
-
-                const img = document.createElement('img');
-                img.src = item.image_url;
-                img.alt = item.category + ' item';
-
-                imageWrapper.appendChild(img);
-                container.appendChild(imageWrapper);
-            });
-        } else {
-            console.error('Failed to load uploaded photos for right side:', payload.message);
-        }
-    } catch (error) {
-        console.error('Error loading uploaded photos for right side:', error);
-    }
-}
-
-    loadUploadedPhotosRightSide();
 });

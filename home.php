@@ -1,17 +1,14 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = 1; // Hardcoded user 1 for session
-}
 // Include the database connection
 include(__DIR__ . "/config/db_connect.php");
 
-// TEMP: fetch user with ID = 1
+// Fetch user fullname based on session user_id
 $fullname = "User"; // default value
 
 try {
-    $stmt = $pdo->prepare("SELECT fullname FROM users WHERE id = 1");
-    $stmt->execute();
+    $stmt = $pdo->prepare("SELECT fullname FROM users WHERE id = :user_id");
+    $stmt->execute([':user_id' => $_SESSION['user_id']]);
     $row = $stmt->fetch();
 
     if ($row) {
@@ -172,26 +169,10 @@ try {
         </div>
     </div>
 
-    <div id="uploadedPhotosContainer" style="position: absolute; right: 50px; left: 750px; top: 250px; width: auto; border: 1px solid #ccc; padding: 10px; background: #ffffff; box-shadow: 0 0 5px rgba(0,0,0,0.1); overflow-y: auto; max-height: 60vh; margin-left: auto; margin-right: auto; padding-left: 5px;">
-<div id="uploadedPhotosList" style="display: flex; flex-direction: row; gap: 15px; align-items: center; flex-wrap: wrap;">
-            
-</div>
-    </div>
-
     <script src="home.js"></script>
     <script>
-        let activeElement = null;
-        function toggleColor(element) {
-            if (activeElement) {
-                activeElement.classList.remove("active");
-            }
-            if (activeElement !== element) {
-                element.classList.add("active");
-                activeElement = element; 
-            } else {
-                activeElement = null; 
-            }
-        }
+        // Removed inline toggleColor function to prevent duplicate declaration of activeElement
+        // toggleColor is handled in home.js now which declares activeElement properly
     </script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
