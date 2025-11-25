@@ -4,6 +4,24 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.html");
     exit;
 }
+
+// Include the database connection
+include(__DIR__ . "/config/db_connect.php");
+
+// Fetch user fullname based on session user_id
+$fullname = "User"; // default value
+
+try {
+    $stmt = $pdo->prepare("SELECT fullname FROM users WHERE id = :user_id");
+    $stmt->execute([':user_id' => $_SESSION['user_id']]);
+    $row = $stmt->fetch();
+
+    if ($row) {
+        $fullname = $row['fullname'];
+    }
+} catch (PDOException $e) {
+    die("Database query failed: " . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +38,9 @@ if (!isset($_SESSION['user_id'])) {
     
     <div id="square1"></div>
     <div id="square2"></div> 
-    <div class="name-text">Mia's Closet</div>
+    <div class="name-text">
+    <?php echo htmlspecialchars($fullname . "'s Closet"); ?>
+    </div>
     <img src="default_profile.png" alt="Profile" class="default_profile">
     <img src="logo.png" alt="Wearify" class="logo">
     
