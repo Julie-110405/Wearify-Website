@@ -406,11 +406,11 @@ body {
 }
 
 #group-upper {
-    position: fixed; 
-    left: 13.32vw; 
-    top: 130px;    
-    width: 130px; 
-    height: 140px; 
+    position: fixed;
+    left: 182px;
+    top: 130px;
+    width: 195px;
+    height: 210px;
     z-index: 1;
 }
 #bg-upper {
@@ -438,11 +438,11 @@ body {
 }
 
 #group-lower {
-    position: fixed; 
-    left: 13.32vw; 
-    top: 280px;    
-    width: 130px; 
-    height: 140px; 
+    position: fixed;
+    left: 220px;
+    top: 350px;
+    width: 195px;
+    height: 210px;
     z-index: 1;
 }
 #bg-lower {
@@ -470,11 +470,11 @@ body {
 }
 
 #group-shoes {
-    position: fixed; 
-    left: 13.32vw; 
-    top: 430px;    
-    width: 130px; 
-    height: 100px; 
+    position: fixed;
+    left: 182px;
+    top: 570px;
+    width: 195px;
+    height: 150px;
     z-index: 1;
 }
 #bg-shoes {
@@ -502,11 +502,11 @@ body {
 }
 
 #group-eyewear {
-    position: fixed; 
-    left: 30.52vw; 
-    top: 160px;    
-    width: 120px; 
-    height: 90px; 
+    position: fixed;
+    left: 420px;
+    top: 160px;
+    width: 180px;
+    height: 135px;
     z-index: 1;
 }
 #bg-eyewear {
@@ -534,11 +534,11 @@ body {
 }
 
 #group-bag {
-    position: fixed; 
-    left: 2.93vw; 
-    top: 280px;    
-    width: 120px; 
-    height: 90px; 
+    position: fixed;
+    left: 40px;
+    top: 280px;
+    width: 180px;
+    height: 135px;
     z-index: 1;
 }
 #bg-bag {
@@ -566,11 +566,11 @@ body {
 }
 
 #group-headwear {
-    position: fixed; 
-    left: 2.93vw; 
-    top: 160px;    
-    width: 120px; 
-    height: 90px; 
+    position: fixed;
+    left: 40px;
+    top: 160px;
+    width: 180px;
+    height: 135px;
     z-index: 1;
 }
 #bg-headwear {
@@ -598,11 +598,11 @@ body {
 }
 
 #group-accessory1 {
-    position: fixed; 
-    left: 24.52vw; 
-    top: 280px;    
-    width: 120px; 
-    height: 90px; 
+    position: fixed;
+    left: 380px;
+    top: 280px;
+    width: 180px;
+    height: 135px;
     z-index: 1;
 }
 #bg-accessory1 {
@@ -630,11 +630,11 @@ body {
 }
 
 #group-accessory2 {
-    position: fixed; 
-    left: 24.52vw; 
-    top: 400px;    
-    width: 120px; 
-    height: 90px; 
+    position: fixed;
+    left: 450px;
+    top: 430px;
+    width: 180px;
+    height: 135px;
     z-index: 1;
 }
 #bg-accessory2 {
@@ -662,11 +662,11 @@ body {
 }
 
 #group-socks {
-    position: fixed; 
-    left: 3.66vw; 
-    top: 400px;    
-    width: 100px; 
-    height: 120px; 
+    position: fixed;
+    left: 50px;
+    top: 430px;
+    width: 150px;
+    height: 180px;
     z-index: 1;
 }
 #bg-socks {
