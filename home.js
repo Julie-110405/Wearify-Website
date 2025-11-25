@@ -5,7 +5,7 @@ const HOME_CATEGORY_CONFIG = {
     lower: { containerId: 'home-lower-items', empty: 'No lower items yet. Please add some items!', slotIds: ['bg-lower'] },
     shoes: { containerId: 'home-shoes-items', empty: 'No shoes yet. Please add some items!', slotIds: ['bg-shoes'] },
     eyewear: { containerId: 'home-eyewear-items', empty: 'No eyewear yet. Please add some items!', slotIds: ['bg-eyewear'] },
-    bag: { containerId: 'home-bag-items', empty: 'No bags yet. Please add some items!', slotIds: ['bg-bag'] },
+    bag: { containerId: 'home-bag-items', empty: '', slotIds: ['bg-bag'] },
     headwear: { containerId: 'home-headwear-items', empty: 'No headwear yet. Please add some items!', slotIds: ['bg-headwear'] },
     accessory: { containerId: 'home-accessory-items', empty: 'No accessories yet. Please add some items!', slotIds: ['bg-accessory1', 'bg-accessory2'] },
     socks: { containerId: 'home-socks-items', empty: 'No socks yet. Please add some items!', slotIds: ['bg-socks'] }

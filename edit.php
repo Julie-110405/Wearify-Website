@@ -1,5 +1,9 @@
 <?php
-// You can add PHP logic here later (session, database, etc.)
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -153,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (homeBtn) {
         homeBtn.style.cursor = "pointer";
         homeBtn.onclick = () => {
-            window.location.href = "home.php";
+            window.location.href = "home.html";
         };
     }
 });

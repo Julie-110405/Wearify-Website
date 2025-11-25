@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 // Include DB
-require 'db.php';
+require_once __DIR__ . '/config/db_connect.php';
 
 // Read JSON input
 $raw = file_get_contents("php://input");
@@ -27,17 +27,14 @@ if ($username === "" || $password === "") {
 }
 
 // Fetch user from DB
-$stmt = $conn->prepare("SELECT id, fullname, username, email, password FROM users WHERE username = ? OR email = ?");
-$stmt->bind_param("ss", $username, $username);
-$stmt->execute();
-$result = $stmt->get_result();
+$stmt = $pdo->prepare("SELECT id, fullname, username, email, password FROM users WHERE username = ? OR email = ?");
+$stmt->execute([$username, $username]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($result->num_rows === 0) {
+if (!$user) {
     echo json_encode(["status" => "error", "message" => "User not found."]);
     exit;
 }
-
-$user = $result->fetch_assoc();
 
 // Check plain-text password
 if ($password === $user['password']) {
@@ -54,7 +51,4 @@ if ($password === $user['password']) {
 } else {
     echo json_encode(["status" => "error", "message" => "Incorrect password."]);
 }
-
-$stmt->close();
-$conn->close();
 ?>

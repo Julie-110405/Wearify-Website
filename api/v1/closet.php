@@ -54,7 +54,7 @@ try {
             respond(false, 'Failed to move uploaded file', 500);
         }
 
-        $imagePath = 'public/uploads/' . $fileName;
+        $imagePath = '/Wearify-Website/public/uploads/' . $fileName;
 
         $stmt = $pdo->prepare("
             INSERT INTO items (user_id, category, image_url)
