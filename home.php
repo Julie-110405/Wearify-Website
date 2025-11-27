@@ -53,55 +53,55 @@ try {
     <div class="rounded-socks" onclick="toggleColor(this)">Socks</div>
     <div id="recwhite"></div>
 
-    <div id="group-upper" class="tooltip-trigger" style="left:240px; top:130px; width:195px; height:210px;">
+    <div id="group-upper" class="tooltip-trigger" style="left:215px; top:130px; width:195px; height:210px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_upper">
         <div id="bg-upper"></div>
         <span class="tooltip-text">Upper</span>
     </div>
 
-    <div id="group-lower" class="tooltip-trigger" style="left:240px; top:365px; width:195px; height:210px;">
+    <div id="group-lower" class="tooltip-trigger" style="left:215px; top:365px; width:195px; height:210px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_lower">
         <div id="bg-lower"></div>
         <span class="tooltip-text">Lower</span>
     </div>
 
-    <div id="group-shoes" class="tooltip-trigger" style="left:240px; top:600px; width:195px; height:150px;">
+    <div id="group-shoes" class="tooltip-trigger" style="left:215px; top:600px; width:195px; height:150px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_shoes">
         <div id="bg-shoes"></div>
         <span class="tooltip-text">Shoes</span>
     </div>
 
-    <div id="group-eyewear" class="tooltip-trigger" style="left:460px; top:160px; width:180px; height:135px;">
+    <div id="group-eyewear" class="tooltip-trigger" style="left:430px; top:160px; width:180px; height:135px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_eyewear">
         <div id="bg-eyewear"></div>
         <span class="tooltip-text">Eyewear</span>
     </div>
 
-    <div id="group-bag" class="tooltip-trigger" style="left:40px; top:320px; width:180px; height:135px; z-index: 99999;">
+    <div id="group-bag" class="tooltip-trigger" style="left:15px; top:320px; width:180px; height:135px; z-index: 99999;">
         <img src="remove_icon.png" alt="Wearify" class="remove_bag">
         <div id="bg-bag"></div>
         <span class="tooltip-text">Bag</span>
     </div>
 
-    <div id="group-headwear" class="tooltip-trigger" style="left:40px; top:160px; width:180px; height:135px;">
+    <div id="group-headwear" class="tooltip-trigger" style="left:15px; top:160px; width:180px; height:135px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_headwear">
         <div id="bg-headwear"></div>
         <span class="tooltip-text">Headwear</span>
     </div>
 
-    <div id="group-accessory1" class="tooltip-trigger" style="left:460px; top:320px; width:180px; height:135px;">
+    <div id="group-accessory1" class="tooltip-trigger" style="left:430px; top:320px; width:180px; height:135px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_accessory1">
         <div id="bg-accessory1"></div>
         <span class="tooltip-text">Accessory 1</span>
     </div>
 
-    <div id="group-accessory2" class="tooltip-trigger" style="left:460px; top:480px; width:180px; height:135px;">
+    <div id="group-accessory2" class="tooltip-trigger" style="left:430px; top:480px; width:180px; height:135px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_accessory2">
         <div id="bg-accessory2"></div>
         <span class="tooltip-text">Accessory 2</span>
     </div>
 
-    <div id="group-socks" class="tooltip-trigger" style="left:50px; top:480px; width:150px; height:180px; z-index: 99999;">
+    <div id="group-socks" class="tooltip-trigger" style="left:25px; top:480px; width:150px; height:180px; z-index: 99999;">
         <img src="remove_icon.png" alt="Wearify" class="remove_socks">
         <div id="bg-socks"></div>
         <span class="tooltip-text">Socks</span>
