@@ -59,13 +59,13 @@ try {
         <span class="tooltip-text">Upper</span>
     </div>
 
-    <div id="group-lower" class="tooltip-trigger" style="left:215px; top:365px; width:195px; height:210px;">
+    <div id="group-lower" class="tooltip-trigger" style="left:215px; top:350px; width:195px; height:210px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_lower">
         <div id="bg-lower"></div>
         <span class="tooltip-text">Lower</span>
     </div>
 
-    <div id="group-shoes" class="tooltip-trigger" style="left:215px; top:600px; width:195px; height:150px;">
+    <div id="group-shoes" class="tooltip-trigger" style="left:215px; top:570px; width:195px; height:150px;">
         <img src="remove_icon.png" alt="Wearify" class="remove_shoes">
         <div id="bg-shoes"></div>
         <span class="tooltip-text">Shoes</span>
