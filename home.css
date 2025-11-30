@@ -40,20 +40,25 @@ body {
     top: 130px; 
     left: 41vw; 
     width: 60vw;
-    height: calc(100vh - 130px - 10px);
+    height: calc(100vh - 130px - 5px - 100px);
+    min-height: 500px;
     overflow-y: auto;
+    padding-top: 0; /* Make sure there's no padding */
     background-color: #ffffff; 
+    padding: 110px;
 }
 
 #square4 {
     width: 100%;
     height: 200vh; 
     background-color: #ffffff; 
+    height: 0;
+    background-color: #ffffff;
 }
 
 .rounded-upper {
     position: fixed;
-    left: 45.5vw; 
+    left: 50.5vw; 
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -78,7 +83,7 @@ body {
 
 .rounded-lower {
     position: fixed;
-    left: 55.0vw;
+    left: 61.0vw;
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -103,7 +108,7 @@ body {
 
 .rounded-shoes {
     position: fixed;
-    left: 64.5vw; 
+    left: 71.5vw; 
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -128,7 +133,7 @@ body {
 
 .rounded-eyewear {
     position: fixed;
-    left: 74.0vw; 
+    left: 82.0vw; 
     top: 150px; 
     width: 110px; 
     height: 20px; 
@@ -153,7 +158,7 @@ body {
 
 .rounded-bag {
     position: fixed;
-    left: 45.5vw; 
+    left: 50.5vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -178,7 +183,7 @@ body {
 
 .rounded-headwear {
     position: fixed;
-    left: 55.0vw; 
+    left: 61.0vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -203,7 +208,7 @@ body {
 
 .rounded-accessory {
     position:fixed;
-    left: 64.5vw; 
+    left: 71.5vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -228,7 +233,7 @@ body {
 
 .rounded-socks {
     position: fixed;
-    left: 74.0vw; 
+    left: 82.0vw; 
     top: 195px; 
     width: 110px; 
     height: 20px; 
@@ -292,7 +297,7 @@ body {
  .name-text {
     position: absolute; 
     left: 110px; 
-    top: 19px; 
+    top: 5px; 
     font-family: 'Montserrat', sans-serif; 
     font-size: 22px; 
     font-weight: 500;
@@ -302,7 +307,7 @@ body {
 .default_profile {
     position: absolute;
     left: 30px; 
-    top: 0px;
+    top: -8px;
     width: 60px;
     height: auto;
     cursor: pointer;
@@ -311,7 +316,7 @@ body {
 .logo {
     position: absolute;
     right: 2vw;
-    top: 0px;
+    top: -8px;
     width: 150px;
     height: auto;
     cursor: pointer; 
@@ -345,8 +350,7 @@ body {
     top: 130px;   
     width: 60vw;   
     height: 110px;   
-    cursor: pointer;   
-    opacity: 0.95;  
+    cursor: pointer;     
     background-color: #ffffff; 
     z-index: 1;     
 }
@@ -699,8 +703,10 @@ body {
     gap: 18px;
     width: 90%;
     max-width: 960px;
-    margin: 0 auto 40px;
+    margin: 0;
     justify-content: flex-start;
+    padding: 10px 0; /* Optional: Add some padding if needed */
+    top: 100px;
 }
 
 .home-item-card {

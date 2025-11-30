@@ -19,7 +19,7 @@
             </div>
 
             <form class="auth-form" id="signupForm">
-                <input type="text" name="fullname" placeholder="Enter first name" required>
+                <input type="text" name="firstname" placeholder="Enter first name" required>
                 <input type="text" name="username" placeholder="Enter username" required>
                 <input type="password" name="password" placeholder="Enter password" id="passwordInput" required>
                 <button type="submit" class="btn">Sign up</button>
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const fullname = document.querySelector("input[name='fullname']").value;
+        const firstname = document.querySelector("input[name='firstname']").value;
         const username = document.querySelector("input[name='username']").value;
         const password = passwordInput.value;
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("http://localhost/Wearify-Website/signup.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ fullname, username, password, email: fullname + "@wearify.com" })
+                body: JSON.stringify({ firstname, username, password })
             });
 
             const result = await response.json();
