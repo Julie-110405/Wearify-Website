@@ -27,8 +27,8 @@ if ($username === "" || $password === "") {
 }
 
 // Fetch user from DB
-$stmt = $pdo->prepare("SELECT id, fullname, username, email, password FROM users WHERE username = ? OR email = ?");
-$stmt->execute([$username, $username]);
+$stmt = $pdo->prepare("SELECT id, fullname, username, password FROM users WHERE username = ?");
+$stmt->execute([$username]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user) {
@@ -41,7 +41,7 @@ if ($password === $user['password']) {
     // Save user session
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
-    $_SESSION['fullname'] = $user['fullname'];
+    $_SESSION['firstname'] = $user['fullname']; // Treat fullname as firstname
 
     echo json_encode([
         "status" => "success",
