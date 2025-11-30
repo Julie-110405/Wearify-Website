@@ -286,8 +286,8 @@ body {
 
  .edit-text {
     position: absolute; 
-    left: 70vw; 
-    top: 65px; 
+    left: 65vw; 
+    top: 75px; 
     font-family: 'Canva Sans', sans-serif; 
     font-size: 24px; 
     font-weight: bold; 
