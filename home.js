@@ -1,5 +1,17 @@
 const HOME_API_ENDPOINT = 'http://localhost/Wearify-Website/api/v1/closet.php';
 
+const DEFAULT_IMAGES = {
+    'bg-upper': 'upper.png',
+    'bg-lower': 'lower.png',
+    'bg-shoes': 'shoes.png',
+    'bg-eyewear': 'eyewear.png',
+    'bg-bag': 'bag.png',
+    'bg-headwear': 'headwear.png',
+    'bg-accessory1': 'accessory1.png',
+    'bg-accessory2': 'accessory2.png',
+    'bg-socks': 'socks.png'
+};
+
 const HOME_CATEGORY_CONFIG = {
     upper: { containerId: 'home-upper-items', empty: 'No upper items yet. Please add some items!', slotIds: ['bg-upper'] },
     lower: { containerId: 'home-lower-items', empty: 'No lower items yet. Please add some items!', slotIds: ['bg-lower'] },
@@ -166,7 +178,12 @@ function updatePreviewSlots(slotIds = [], items = []) {
         if (previewItem) {
             slot.style.backgroundImage = `url(${previewItem.image_url})`;
         } else {
-            slot.style.backgroundImage = '';
+            const defaultImage = DEFAULT_IMAGES[slotId];
+            if (defaultImage) {
+                slot.style.backgroundImage = `url(${defaultImage})`;
+            } else {
+                slot.style.backgroundImage = '';
+            }
         }
     });
 }
@@ -329,8 +346,24 @@ function removeItemFromSlot(category) {
     delete selectedItems[groupId];
     const bgDiv = document.getElementById('bg-' + category);
     if (bgDiv) {
-        bgDiv.style.backgroundImage = '';
+        const defaultImage = DEFAULT_IMAGES['bg-' + category];
+        if (defaultImage) {
+            bgDiv.style.backgroundImage = `url(${defaultImage})`;
+        } else {
+            bgDiv.style.backgroundImage = '';
+        }
     }
+}
+
+function initializeDefaultImages() {
+    Object.keys(DEFAULT_IMAGES).forEach(slotId => {
+        const slot = document.getElementById(slotId);
+        if (slot && !slot.style.backgroundImage) {
+            slot.style.backgroundImage = `url(${DEFAULT_IMAGES[slotId]})`;
+            slot.style.backgroundSize = 'cover';
+            slot.style.backgroundPosition = 'center';
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -341,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide('rounded-upper');
     }
 
+    initializeDefaultImages();
     loadClosetItemsForHome();
 
     // Add event listeners for group divs
