@@ -12,6 +12,22 @@ const DEFAULT_IMAGES = {
     'bg-socks': 'socks.png'
 };
 
+function openEditAccount() {
+    document.getElementById('editAccountModal').style.display = 'block';
+}
+
+function closeEditAccount() {
+    document.getElementById('editAccountModal').style.display = 'none';
+}
+
+// Close if clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('editAccountModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
 const HOME_CATEGORY_CONFIG = {
     upper: { containerId: 'home-upper-items', empty: 'No upper items yet. Please add some items!', slotIds: ['bg-upper'] },
     lower: { containerId: 'home-lower-items', empty: 'No lower items yet. Please add some items!', slotIds: ['bg-lower'] },
