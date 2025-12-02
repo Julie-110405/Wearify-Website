@@ -41,38 +41,59 @@ document.addEventListener("DOMContentLoaded", () => {
         passwordInput.type = "text"; // show actual
         clearTimeout(maskTimeout);
         maskTimeout = setTimeout(() => {
-            passwordInput.type = "password"; // mask after 1000 = 1 second
+            passwordInput.type = "password"; // mask after 100ms
         }, 100);
     });
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const firstname = document.querySelector("input[name='firstname']").value;
-        const username = document.querySelector("input[name='username']").value;
+        const firstname = document.querySelector("input[name='firstname']").value.trim();
+        const username = document.querySelector("input[name='username']").value.trim();
         const password = passwordInput.value;
 
         const responseMessage = document.getElementById("responseMessage");
+        
+        // Validate input
+        if (!firstname || !username || !password) {
+            responseMessage.style.color = "red";
+            responseMessage.textContent = "All fields are required";
+            return;
+        }
+
+        if (username.length < 3) {
+            responseMessage.style.color = "red";
+            responseMessage.textContent = "Username must be at least 3 characters";
+            return;
+        }
+
+        responseMessage.style.color = "white";
         responseMessage.textContent = "Processing...";
 
         try {
-            const response = await fetch("http://localhost/Wearify-Website/signup.php", {
+            const response = await fetch("signup.php", {  // Changed to relative path
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ firstname, username, password })
             });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const result = await response.json();
             responseMessage.style.color = result.status === "success" ? "lightgreen" : "red";
             responseMessage.textContent = result.message;
 
-            if(result.status === "success"){
-                setTimeout(() => { window.location.href = "login.html"; }, 1000);
+            if (result.status === "success") {
+                setTimeout(() => { 
+                    window.location.href = "login.html"; 
+                }, 1500);
             }
         } catch (error) {
             responseMessage.style.color = "red";
             responseMessage.textContent = "Error: Could not connect to server.";
-            console.log(error);
+            console.error("Signup error:", error);
         }
     });
 });

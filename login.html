@@ -40,17 +40,26 @@ document.addEventListener("DOMContentLoaded", () => {
         passwordInput.type = "text"; // show actual
         clearTimeout(maskTimeout);
         maskTimeout = setTimeout(() => {
-            passwordInput.type = "password"; // mask after 1 second
+            passwordInput.type = "password"; // mask after 100ms
         }, 100);
     });
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const username = document.querySelector("input[name='username']").value;
+        const username = document.querySelector("input[name='username']").value.trim();
         const password = passwordInput.value;
 
         const responseMessage = document.getElementById("responseMessage");
+        
+        // Validate input
+        if (!username || !password) {
+            responseMessage.style.color = "red";
+            responseMessage.textContent = "Username and password are required";
+            return;
+        }
+
+        responseMessage.style.color = "white";
         responseMessage.textContent = "Processing...";
 
         try {
@@ -60,18 +69,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ username, password })
             });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const result = await response.json();
             responseMessage.style.color = result.status === "success" ? "lightgreen" : "red";
             responseMessage.textContent = result.message;
 
-            if(result.status === "success"){
-                setTimeout(() => { window.location.href = "home.php"; }, 1000);
+            if (result.status === "success") {
+                setTimeout(() => { 
+                    window.location.href = result.redirect || "home.php"; 
+                }, 1000);
             }
             
         } catch (error) {
             responseMessage.style.color = "red";
             responseMessage.textContent = "Error: Could not connect to server.";
-            console.log(error);
+            console.error("Login error:", error);
         }
     });
 });
