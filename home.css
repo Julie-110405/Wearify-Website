@@ -317,13 +317,13 @@ body {
 }
 
 .logo {
-    position: absolute;
-    left: 1110px;
+    position: fixed;
+    left: 1370px;
     right: 20px;
     top: 8px;
     width: 150px;
     height: auto;
-    cursor: move; 
+    cursor: pointer; 
     z-index: 101;
 }
 
