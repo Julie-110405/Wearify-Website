@@ -294,37 +294,37 @@ body {
     cursor: pointer; 
 }
 
-/* Also update .name-text to align properly */
 .name-text {
-    position: fixed;   /* Changed from absolute to fixed for consistency */
+    position: fixed;
     left: 110px; 
-    top: 15px;         /* Adjusted from 5px to 15px for better alignment */
+    top: 19px;
     font-family: 'Montserrat', sans-serif; 
     font-size: 22px; 
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
-    z-index: 100;      /* Added z-index */
+    z-index: 101;
 }
 
-/* Update default_profile too for consistency */
 .default_profile {
-    position: fixed;   /* Changed from absolute to fixed */
+    position: fixed;
     left: 30px; 
-    top: 5px;          /* Adjusted from -8px to 5px */
+    top: 8px;
     width: 60px;
     height: auto;
     cursor: pointer;
-    z-index: 100;      /* Added z-index */
+    z-index: 101;
+    border-radius: 50%;
 }
 
 .logo {
-    position: fixed;  /* Changed from absolute to fixed */
-    right: 30px;      /* Distance from right edge */
-    top: 10px;        /* Changed from -8px to 10px */
+    position: absolute;
+    left: 1110px;
+    right: 20px;
+    top: 8px;
     width: 150px;
     height: auto;
     cursor: pointer;
-    z-index: 100;     /* Added z-index to ensure it's visible */
+    z-index: 101;
 }
 
 

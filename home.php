@@ -50,7 +50,7 @@ try {
     .account-sidebar-panel {
         position: fixed;
         top: 0;
-        left: -320px; /* Hidden by default */
+        left: -320px;
         width: 320px;
         height: auto;
         min-height: 50vh;
@@ -72,7 +72,6 @@ try {
         min-height: 65vh;
     }
 
-    /* Overlay for modal */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -88,7 +87,6 @@ try {
         display: block;
     }
 
-    /* Success/Error messages */
     .message-box {
         padding: 10px;
         margin: 10px 0;
@@ -113,9 +111,28 @@ try {
         display: block;
     }
 
-    /* Make profile icon clickable */
     .default_profile {
         cursor: pointer;
+    }
+
+    /* Logout Button Styles */
+    .logout-button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 700;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .logout-button:hover {
+        background-color: #c9302c;
     }
   </style>
 </head>
@@ -176,6 +193,9 @@ try {
             <button class="back-button" id="closeAccountPanel">Back</button>
             <button class="save-button" id="saveAccountChanges">Save</button>
         </div>
+
+        <!-- Logout Button -->
+        <button class="logout-button" id="logoutButton">Log Out</button>
     </div>
 
     <!-- Original Home Content -->
@@ -347,6 +367,7 @@ try {
             const passwordToggle = document.getElementById('password-toggle');
             const passwordInputs = document.getElementById('password-inputs');
             const saveButton = document.getElementById('saveAccountChanges');
+            const logoutButton = document.getElementById('logoutButton');
             const messageBox = document.getElementById('messageBox');
             const profilePhotoInput = document.getElementById('profilePhotoInput');
             const profilePhotoDisplay = document.getElementById('profilePhotoDisplay');
@@ -362,7 +383,6 @@ try {
             function closePanel() {
                 accountPanel.classList.remove('active');
                 accountOverlay.classList.remove('active');
-                // Reset expanded states
                 usernameInputs.classList.add('hidden');
                 passwordInputs.classList.add('hidden');
                 accountPanel.classList.remove('expanded');
@@ -407,17 +427,22 @@ try {
                 }
             });
 
+            // Logout functionality
+            logoutButton.addEventListener('click', () => {
+                if (confirm('Are you sure you want to log out?')) {
+                    window.location.href = 'logout.php';
+                }
+            });
+
             // Save account changes
             saveButton.addEventListener('click', async () => {
                 const formData = new FormData();
                 
-                // Add fullname
                 const fullname = document.getElementById('fullnameInput').value.trim();
                 if (fullname) {
                     formData.append('fullname', fullname);
                 }
 
-                // Add username if changed
                 const newUsername = document.getElementById('newUsername').value.trim();
                 const usernamePassword = document.getElementById('usernamePassword').value;
                 if (!usernameInputs.classList.contains('hidden') && newUsername) {
@@ -429,7 +454,6 @@ try {
                     formData.append('username_password', usernamePassword);
                 }
 
-                // Add password if changed
                 const currentPassword = document.getElementById('currentPassword').value;
                 const newPassword = document.getElementById('newPassword').value;
                 const confirmPassword = document.getElementById('confirmPassword').value;
@@ -443,14 +467,13 @@ try {
                         return;
                     }
                     if (newPassword.length <= 1) {
-                        showMessage('New password must be at least 1 characters', 'error');
+                        showMessage('New password must be at least 1 character', 'error');
                         return;
                     }
                     formData.append('current_password', currentPassword);
                     formData.append('new_password', newPassword);
                 }
 
-                // Add profile photo if changed
                 if (profilePhotoInput.files[0]) {
                     formData.append('profile_photo', profilePhotoInput.files[0]);
                 }
@@ -466,28 +489,23 @@ try {
                     if (result.success) {
                         showMessage(result.message, 'success');
                         
-                        // Update displayed username if changed
                         if (result.new_username) {
                             document.getElementById('usernameDisplay').textContent = result.new_username;
                         }
 
-                        // Update profile picture if changed
                         if (result.new_profile_pic) {
                             document.getElementById('profileIcon').src = result.new_profile_pic;
                         }
 
-                        // Update name display if changed
                         if (result.new_fullname) {
                             document.querySelector('.name-text').textContent = result.new_fullname + "'s Closet";
                         }
 
-                        // Clear password fields
                         document.getElementById('currentPassword').value = '';
                         document.getElementById('newPassword').value = '';
                         document.getElementById('confirmPassword').value = '';
                         document.getElementById('usernamePassword').value = '';
 
-                        // Close panel after 1.5 seconds
                         setTimeout(() => {
                             closePanel();
                         }, 1500);
