@@ -323,7 +323,7 @@ body {
     top: 8px;
     width: 150px;
     height: auto;
-    cursor: pointer;
+    cursor: move; 
     z-index: 101;
 }
 
