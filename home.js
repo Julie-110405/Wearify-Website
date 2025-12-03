@@ -41,6 +41,7 @@ const HOME_CATEGORY_CONFIG = {
 
 // Store selected items for each slot
 let selectedItems = {};
+let lastClickedGroupId = null;
 
 const slides = {
     'rounded-upper': 'slide-upper',
@@ -336,11 +337,17 @@ function assignItemToSquare(item) {
     const config = HOME_CATEGORY_CONFIG[category];
     if (!config || !config.slotIds.length) return;
 
-    // For accessory, cycle through available slots
+    // For accessory, assign to the last clicked group if it's accessory1 or accessory2
     let slotId;
     if (category === 'accessory') {
-        // Find the first empty slot or the first one
-        slotId = config.slotIds.find(id => !document.getElementById(id).style.backgroundImage) || config.slotIds[0];
+        if (lastClickedGroupId === 'group-accessory2') {
+            slotId = 'bg-accessory2';
+        } else if (lastClickedGroupId === 'group-accessory1') {
+            slotId = 'bg-accessory1';
+        } else {
+            // Find the first empty slot or the first one
+            slotId = config.slotIds.find(id => !document.getElementById(id).style.backgroundImage) || config.slotIds[0];
+        }
     } else {
         slotId = config.slotIds[0];
     }
@@ -399,6 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const groupDiv = document.getElementById(groupId);
         if (groupDiv) {
             groupDiv.addEventListener('click', (e) => {
+                lastClickedGroupId = groupId;
                 // Switch to the corresponding category on the right side
                 switchToCategoryFromGroup(groupId);
                 // Open selection modal
